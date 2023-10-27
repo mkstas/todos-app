@@ -7,7 +7,15 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: () => import('@/pages/home'),
+      component: () => import('@/pages/signin'),
+    },
+    {
+      path: '/signup',
+      component: () => import('@/pages/signup'),
+    },
+    {
+      path: '/board',
+      component: () => import('@/pages/board'),
     },
   ],
 });
