@@ -1,6 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-export const router = createRouter({
+import { loadLayout } from './middlewares/loadLayout';
+
+const router = createRouter({
   history: createWebHistory(),
-  routes: [],
+  routes: [
+    {
+      path: '/',
+      component: () => import('@/pages/home'),
+    },
+  ],
 });
+
+router.beforeEach(loadLayout);
+
+export { router };
