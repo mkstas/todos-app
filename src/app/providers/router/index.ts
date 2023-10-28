@@ -7,7 +7,8 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: () => import('@/pages/signin'),
+      name: 'signin',
+      component: () => import('@/pages/SigninPage'),
     },
     {
       path: '/signup',
