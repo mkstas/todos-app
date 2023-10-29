@@ -12,11 +12,13 @@ const router = createRouter({
     },
     {
       path: '/signup',
-      component: () => import('@/pages/signup'),
+      name: 'signup',
+      component: () => import('@/pages/SignupPage'),
     },
     {
       path: '/board',
-      component: () => import('@/pages/board'),
+      name: 'board',
+      component: () => import('@/pages/BoardPage'),
     },
   ],
 });
