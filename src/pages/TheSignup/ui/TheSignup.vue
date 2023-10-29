@@ -15,7 +15,7 @@ import FormSignup from '@/widgets/FormSignup';
       <Logotype />
       <FormSignup />
       <BaseMat>
-        <BaseButtonLink to="/">Вход в акаунт</BaseButtonLink>
+        <BaseButtonLink to="/">Вход в аккаунт</BaseButtonLink>
       </BaseMat>
     </div>
   </div>

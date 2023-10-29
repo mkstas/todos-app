@@ -15,7 +15,7 @@ import FormSignin from '@/widgets/FormSignin';
       <Logotype />
       <FormSignin />
       <BaseMat>
-        <BaseButtonLink to="/signup">Регистрация</BaseButtonLink>
+        <BaseButtonLink to="/signup">Регистрация аккаунта</BaseButtonLink>
       </BaseMat>
     </div>
   </div>

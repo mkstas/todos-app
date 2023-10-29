@@ -10,7 +10,7 @@ import BaseButton from '@/shared/BaseButton';
     <BaseForm class="grid gap-6">
       <BaseInput
         label="Электронная почта"
-        type="text"
+        type="email"
         placeholder="user@gmail.com"
         id="email"
       />
