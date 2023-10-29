@@ -8,17 +8,17 @@ const router = createRouter({
     {
       path: '/',
       name: 'signin',
-      component: () => import('@/pages/SigninPage'),
+      component: () => import('@/pages/TheSignin'),
     },
     {
       path: '/signup',
       name: 'signup',
-      component: () => import('@/pages/SignupPage'),
+      component: () => import('@/pages/TheSignup'),
     },
     {
       path: '/board',
       name: 'board',
-      component: () => import('@/pages/BoardPage'),
+      component: () => import('@/pages/TheBoard'),
     },
   ],
 });
