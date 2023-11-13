@@ -1,23 +1,26 @@
 <script lang="ts" setup>
 import { Ref, ref } from 'vue';
 
+import { useViewerStore } from '@/entities/viewer';
+
 import BaseMat from '@/shared/BaseMat';
 import BaseForm from '@/shared/BaseForm';
 import BaseInput, { BaseInputEnum } from '@/shared/BaseInput';
 import BaseButton from '@/shared/BaseButton';
-import { useViewerStore } from '@/entities/viewer';
 
-const { viewer, signup } = useViewerStore();
+const { signup } = useViewerStore();
 
+const email: Ref<string> = ref('');
+const password: Ref<string> = ref('');
 const passwordRepeat: Ref<string> = ref('');
 const passwordError: Ref<string> = ref('');
 
 const onSubmitForm = () => {
-  if (passwordRepeat.value !== viewer.password) {
-    passwordError.value = 'Пароли не совпадают';
+  if (passwordRepeat.value !== password.value) {
+    return (passwordError.value = 'Пароли не совпадают');
   }
 
-  signup();
+  signup(email.value, password.value);
 };
 </script>
 
@@ -25,15 +28,15 @@ const onSubmitForm = () => {
   <BaseMat>
     <BaseForm class="grid gap-6" @submit.prevent="onSubmitForm">
       <BaseInput
-        v-model="viewer.email"
+        v-model="email"
         label="Электронная почта"
         placeholder="user@gmail.com"
         id="email"
         :type="BaseInputEnum.email"
       />
       <BaseInput
-        v-model="viewer.password"
-        placeholder="********"
+        v-model="password"
+        placeholder="******"
         label="Пароль"
         id="password"
         :type="BaseInputEnum.password"
@@ -42,7 +45,7 @@ const onSubmitForm = () => {
       <BaseInput
         v-model="passwordRepeat"
         label="Повторите пароль"
-        placeholder="********"
+        placeholder="******"
         id="password_repeat"
         :type="BaseInputEnum.password"
         :error="passwordError"
