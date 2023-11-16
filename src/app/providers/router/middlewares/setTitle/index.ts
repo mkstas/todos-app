@@ -1,4 +1,10 @@
-export const setTitle = (to, from, next) => {
-  document.title = to.meta.title;
+import { RouteLocationNormalized, NavigationGuardNext } from 'vue-router';
+
+export const setTitle = (
+  to: RouteLocationNormalized,
+  from: RouteLocationNormalized,
+  next: NavigationGuardNext,
+) => {
+  document.title = `${to.meta.title} | Task Tracker`;
   next();
 };

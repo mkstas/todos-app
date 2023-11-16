@@ -3,9 +3,9 @@ import { RouteLocationNormalized } from 'vue-router';
 import { LayoutsEnum } from '../../typicode/Layouts.types';
 
 export const loadLayout = async (
-  route: RouteLocationNormalized,
+  to: RouteLocationNormalized,
 ): Promise<void> => {
-  const { layout } = route.meta;
+  const { layout } = to.meta;
 
   const layoutName = layout || LayoutsEnum.default;
 
@@ -13,5 +13,5 @@ export const loadLayout = async (
     `../../../../../widgets/${layoutName}/index.ts`
   );
 
-  route.meta.layoutComponent = component.default;
+  to.meta.layoutComponent = component.default;
 };
