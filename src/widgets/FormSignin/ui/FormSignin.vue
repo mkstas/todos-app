@@ -1,12 +1,15 @@
 <script lang="ts" setup>
 import { Ref, ref } from 'vue';
 
-import { useViewerStore } from '@/entities/viewer';
+import {
+  BaseButton,
+  BaseInput,
+  BaseInputEnum,
+  BaseForm,
+  BaseMat,
+} from '@/shared/UIkit';
 
-import BaseMat from '@/shared/BaseMat';
-import BaseForm from '@/shared/BaseForm';
-import BaseInput, { BaseInputEnum } from '@/shared/BaseInput';
-import BaseButton from '@/shared/BaseButton';
+import { useViewerStore } from '@/entities/viewer';
 
 const email: Ref<string> = ref('');
 const password: Ref<string> = ref('');
