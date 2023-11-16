@@ -7,7 +7,7 @@ import {
   signOut,
 } from 'firebase/auth';
 
-import { auth } from '@/entities/firebase';
+import { auth } from '@/shared/firebase';
 
 import { ViewerType } from './store.types';
 import { UserCredential } from 'firebase/auth/cordova';
@@ -49,6 +49,7 @@ export const useViewerStore = defineStore('viewer', () => {
 
   const signout = () => {
     signOut(auth);
+    router.push('/signin');
   };
 
   return { viewer, signin, signup, signout };
