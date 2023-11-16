@@ -1,6 +1,6 @@
 import { RouteLocationNormalized } from 'vue-router';
 
-import { LayoutsEnum } from '../typicode/Layouts.types';
+import { LayoutsEnum } from '../../typicode/Layouts.types';
 
 export const loadLayout = async (
   route: RouteLocationNormalized,
@@ -9,7 +9,9 @@ export const loadLayout = async (
 
   const layoutName = layout || LayoutsEnum.default;
 
-  const component = await import(`../../../../widgets/${layoutName}/index.ts`);
+  const component = await import(
+    `../../../../../widgets/${layoutName}/index.ts`
+  );
 
   route.meta.layoutComponent = component.default;
 };
