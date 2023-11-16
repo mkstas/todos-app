@@ -4,7 +4,7 @@ import {
   BaseButtonLink,
   BaseMat,
   BaseLogotype,
-} from '@/shared/UIkit';
+} from '@/shared/uilib';
 
 import FormSignup from '@/widgets/FormSignup';
 </script>

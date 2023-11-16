@@ -4,7 +4,7 @@ import {
   BaseBgGradient,
   BaseButtonLink,
   BaseMat,
-} from '@/shared/UIkit';
+} from '@/shared/uilib';
 
 import FormSignin from '@/widgets/FormSignin';
 </script>

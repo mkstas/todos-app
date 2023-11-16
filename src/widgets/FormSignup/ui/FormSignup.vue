@@ -7,7 +7,7 @@ import {
   BaseInputEnum,
   BaseForm,
   BaseMat,
-} from '@/shared/UIkit';
+} from '@/shared/uilib';
 
 import { useViewerStore } from '@/entities/viewer';
 
