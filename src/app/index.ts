@@ -1,15 +1,23 @@
-import { createApp } from 'vue';
+import { App, createApp } from 'vue';
+
+import { auth } from '@/shared/firebase';
 
 import { pinia, router } from './providers';
-import App from './index.vue';
+import VueApp from './index.vue';
 
 import './index.css';
 
 export const bootstrap = () => {
-  const app = createApp(App);
+  let app: App<Element>;
 
-  app.use(router);
-  app.use(pinia);
+  auth.onAuthStateChanged(() => {
+    if (!app) {
+      app = createApp(VueApp);
 
-  app.mount('#app');
+      app.use(router);
+      app.use(pinia);
+
+      app.mount('#app');
+    }
+  });
 };

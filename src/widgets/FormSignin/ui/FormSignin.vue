@@ -9,15 +9,15 @@ import {
   BaseMat,
 } from '@/shared/uilib';
 
-import { useViewerStore } from '@/entities/viewer';
+import { useUserStore } from '@/entities/user';
 
 const email: Ref<string> = ref('');
 const password: Ref<string> = ref('');
 
-const { signin } = useViewerStore();
+const { signin } = useUserStore();
 
-const onSubmitForm = () => {
-  signin(email.value, password.value);
+const onSubmitForm = async () => {
+  await signin(email.value, password.value);
 };
 </script>
 
@@ -30,6 +30,7 @@ const onSubmitForm = () => {
         placeholder="user@gmail.com"
         id="email"
         :type="BaseInputEnum.email"
+        :required="true"
       />
       <BaseInput
         v-model="password"
@@ -37,6 +38,7 @@ const onSubmitForm = () => {
         placeholder="******"
         id="password"
         :type="BaseInputEnum.password"
+        :required="true"
       />
       <BaseButton>Войти</BaseButton>
     </BaseForm>

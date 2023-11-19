@@ -9,6 +9,6 @@ export type BaseInputPropsType = {
   placeholder?: string;
   type?: BaseInputEnum;
   id?: string;
+  required?: boolean;
   modelValue?: any;
-  error?: string;
 };

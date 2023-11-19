@@ -4,6 +4,7 @@ import { BaseInputPropsType, BaseInputEnum } from './BaseInput.types';
 
 const props = withDefaults(defineProps<BaseInputPropsType>(), {
   type: BaseInputEnum.text,
+  required: false,
 });
 
 const model = computed({
@@ -30,7 +31,7 @@ const emit = defineEmits(['update:modelValue']);
       :type="type"
       :placeholder="placeholder"
       :id="id"
+      :required="required"
     />
-    <span v-if="error" class="text-red-600">{{ error }}</span>
   </div>
 </template>
