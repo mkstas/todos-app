@@ -18,7 +18,7 @@ import {
 } from 'firebase/firestore';
 
 import { auth, firestore } from '@/shared/firebase';
-import { UserType } from './store.types';
+import { RoutesPathEnum, UserType } from '@/shared/typicode';
 
 export const useUserStore = defineStore('user', () => {
   const router = useRouter();
@@ -57,7 +57,7 @@ export const useUserStore = defineStore('user', () => {
 
       setUserData(response);
 
-      router.push('/board');
+      router.push(RoutesPathEnum.board);
     } catch (error) {
       console.log(error);
     }
@@ -77,7 +77,7 @@ export const useUserStore = defineStore('user', () => {
 
       setUserData(res);
 
-      router.push('/board');
+      router.push(RoutesPathEnum.board);
     } catch (error) {
       console.log(error);
     }
@@ -85,7 +85,7 @@ export const useUserStore = defineStore('user', () => {
 
   const signout = async () => {
     await signOut(auth);
-    router.push('/');
+    router.push(RoutesPathEnum.home);
   };
 
   return { userData, setUserData, getUserData, signin, signup, signout };

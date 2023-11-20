@@ -1,29 +1,44 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
+import { RoutesPathEnum, RoutesNameEnum } from '@/shared/typicode';
+
 import { loadLayout, setTitle } from './middlewares';
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: '/',
-      name: 'signin',
+      path: RoutesPathEnum.notFound,
+      name: RoutesNameEnum.notFound,
+      component: () => import('@/pages/TheNotFound'),
+      meta: {
+        title: 'Страница не найдена',
+      },
+    },
+    {
+      path: RoutesPathEnum.home,
+      name: RoutesNameEnum.home,
+      component: () => import('@/pages/TheHome'),
+    },
+    {
+      path: RoutesPathEnum.signin,
+      name: RoutesNameEnum.signin,
       component: () => import('@/pages/TheSignin'),
       meta: {
         title: 'Вход',
       },
     },
     {
-      path: '/signup',
-      name: 'signup',
+      path: RoutesPathEnum.signup,
+      name: RoutesNameEnum.signup,
       component: () => import('@/pages/TheSignup'),
       meta: {
         title: 'Регистрация',
       },
     },
     {
-      path: '/board',
-      name: 'board',
+      path: RoutesPathEnum.board,
+      name: RoutesNameEnum.board,
       component: () => import('@/pages/TheBoard'),
       meta: {
         title: 'Доска задач',

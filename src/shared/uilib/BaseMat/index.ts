@@ -1,2 +1,1 @@
-import BaseMat from './ui/BaseMat.vue';
-export { BaseMat };
+export { default as BaseMat } from './ui/BaseMat.vue';

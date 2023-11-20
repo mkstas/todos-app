@@ -1,3 +1,2 @@
-import BaseInput from './ui/BaseInput.vue';
-import { BaseInputEnum } from './ui/BaseInput.types';
-export { BaseInput, BaseInputEnum };
+export { default as BaseInput } from './ui/BaseInput.vue';
+export * from './ui/BaseInput.types';

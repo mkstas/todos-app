@@ -1,6 +1,6 @@
 import { RouteLocationNormalized } from 'vue-router';
 
-import { LayoutsEnum } from '../../typicode/Layouts.types';
+import { LayoutsEnum } from '@/shared/typicode';
 
 export const loadLayout = async (
   to: RouteLocationNormalized,

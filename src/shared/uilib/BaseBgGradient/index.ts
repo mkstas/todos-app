@@ -1,2 +1,1 @@
-import BaseBgGradient from './ui/BaseBgGradient.vue';
-export { BaseBgGradient };
+export { default as BaseBgGradient } from './ui/BaseBgGradient.vue';

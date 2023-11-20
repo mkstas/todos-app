@@ -1,2 +1,1 @@
-import BaseError from './ui/BaseError.vue';
-export { BaseError };
+export { default as BaseError } from './ui/BaseError.vue';
