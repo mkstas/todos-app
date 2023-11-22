@@ -4,9 +4,9 @@ import { CheckBadgeIcon } from '@heroicons/vue/24/outline';
 
 <template>
   <div
-    class="flex items-center justify-center gap-3 drop-shadow-md shadow-gray-800/15"
+    class="flex items-center justify-center gap-2 drop-shadow-md shadow-gray-800/15"
   >
-    <CheckBadgeIcon class="h-14 text-white" />
-    <span class="text-4xl text-white font-semibold">Task Tracker</span>
+    <CheckBadgeIcon class="h-10 text-sky-500" />
+    <span class="text-2xl font-semibold">Task Tracker</span>
   </div>
 </template>

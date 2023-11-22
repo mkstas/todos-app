@@ -6,3 +6,4 @@ export * from './BaseForm';
 export * from './BaseInput';
 export * from './BaseMat';
 export * from './BaseLogotype';
+export * from './BaseContainer';
