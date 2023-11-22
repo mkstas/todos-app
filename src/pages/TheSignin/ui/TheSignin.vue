@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { RoutesPathEnum } from '@/shared/typicode';
 import {
   BaseLogotype,
   BaseBgGradient,
@@ -18,7 +19,9 @@ import FormSignin from '@/widgets/FormSignin';
       <BaseLogotype />
       <FormSignin />
       <BaseMat>
-        <BaseButtonLink to="/signup">Регистрация аккаунта</BaseButtonLink>
+        <BaseButtonLink :to="RoutesPathEnum.signup">
+          Регистрация аккаунта
+        </BaseButtonLink>
       </BaseMat>
     </div>
   </div>

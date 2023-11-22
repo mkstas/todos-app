@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import { RoutesPathEnum, RoutesNameEnum } from '@/shared/typicode';
 
-import { loadLayout, setTitle } from './middlewares';
+import { loadLayout, setTitle, checkAuth } from './middlewares';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -19,6 +19,9 @@ const router = createRouter({
       path: RoutesPathEnum.home,
       name: RoutesNameEnum.home,
       component: () => import('@/pages/TheHome'),
+      meta: {
+        requiredAuth: false,
+      },
     },
     {
       path: RoutesPathEnum.signin,
@@ -26,6 +29,7 @@ const router = createRouter({
       component: () => import('@/pages/TheSignin'),
       meta: {
         title: 'Вход',
+        requiredAuth: false,
       },
     },
     {
@@ -34,6 +38,7 @@ const router = createRouter({
       component: () => import('@/pages/TheSignup'),
       meta: {
         title: 'Регистрация',
+        requiredAuth: false,
       },
     },
     {
@@ -42,11 +47,13 @@ const router = createRouter({
       component: () => import('@/pages/TheBoard'),
       meta: {
         title: 'Доска задач',
+        requiredAuth: true,
       },
     },
   ],
 });
 
+router.beforeEach(checkAuth);
 router.beforeEach(setTitle);
 router.beforeEach(loadLayout);
 
