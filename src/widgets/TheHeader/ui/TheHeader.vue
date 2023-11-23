@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { onMounted } from 'vue';
 import { RouterLink } from 'vue-router';
 
 import { RoutesPathEnum } from '@/shared/typicode';
@@ -9,32 +8,16 @@ import { TheNavigation } from '@/features/TheNavigation';
 import { TheNavigationMobile } from '@/features/TheNavigationMobile';
 import { TheButtonBurger } from '@/features/TheButtonBurger';
 
-import {
-  isMobile,
-  isMobileNavigation,
-  useNavigation,
-} from '../lib/useNavigation';
+import { useNavigation } from '../lib/useNavigation';
 
 const {
-  checkIsMobile,
-  toggleMobileNavigation,
-  checkIsMobileAndRemoveBlockScreen,
-  checkIsMobileNavigationAndToggleBlockScreen,
-  checkIsMobileAndCloseMobileNavigation,
+  isMobile,
+  isMobileNavigation,
+  toggleMobileNavigationAndToggleBlockScreen,
+  initNavigation,
 } = useNavigation();
 
-const onClickBurger = () => {
-  toggleMobileNavigation();
-  checkIsMobileNavigationAndToggleBlockScreen();
-};
-
-onMounted(() => {
-  checkIsMobile();
-
-  window.addEventListener('resize', checkIsMobile);
-  window.addEventListener('resize', checkIsMobileAndRemoveBlockScreen);
-  window.addEventListener('resize', checkIsMobileAndCloseMobileNavigation);
-});
+initNavigation();
 </script>
 
 <template>
@@ -46,7 +29,10 @@ onMounted(() => {
 
       <TheNavigation v-if="!isMobile" />
       <TheNavigationMobile :is-open="isMobileNavigation" />
-      <TheButtonBurger v-if="isMobile" @click="onClickBurger" />
+      <TheButtonBurger
+        v-if="isMobile"
+        @click="toggleMobileNavigationAndToggleBlockScreen"
+      />
     </div>
   </header>
 </template>

@@ -1,47 +1,58 @@
-import { ref } from 'vue';
+import { Ref, onMounted, onUnmounted, ref } from 'vue';
 
-export const isMobile = ref(false);
-
-export const isMobileNavigation = ref(false);
+import { removeBlockScreen, toggleBlockScreen } from '@/shared/utils';
 
 export const useNavigation = () => {
+  const isMobile: Ref<boolean> = ref(false);
+  const isMobileNavigation: Ref<boolean> = ref(false);
+
+  const toggleMobileNavigation = () => {
+    isMobileNavigation.value = !isMobileNavigation.value;
+  };
+
+  const toggleMobileNavigationAndToggleBlockScreen = () => {
+    toggleMobileNavigation();
+    toggleBlockScreen();
+  };
+
+  const closeMobileNavigation = () => {
+    isMobileNavigation.value = false;
+  };
+
   const checkIsMobile = () => {
     window.innerWidth < 768
       ? (isMobile.value = true)
       : (isMobile.value = false);
   };
 
-  const removeBlockScreen = () => {
-    document.body.classList.remove('overflow-hidden');
+  const checkIsNotMobileAndCloseMobileNavigation = () => {
+    !isMobile.value && closeMobileNavigation();
   };
 
-  const toggleBlockScreen = () => {
-    document.body.classList.toggle('overflow-hidden');
+  const checkIsNotMobileAndRemoveBlockScreen = () => {
+    !isMobile.value && removeBlockScreen();
   };
 
-  const toggleMobileNavigation = () => {
-    isMobileNavigation.value = !isMobileNavigation.value;
-  };
+  const initNavigation = () => {
+    onMounted(() => {
+      checkIsMobile();
 
-  const checkIsMobileNavigationAndToggleBlockScreen = () => {
-    isMobileNavigation ? toggleBlockScreen() : null;
-  };
+      window.addEventListener('resize', checkIsMobile);
 
-  const checkIsMobileAndCloseMobileNavigation = () => {
-    isMobile.value ? (isMobileNavigation.value = false) : null;
-  };
+      window.addEventListener(
+        'resize',
+        checkIsNotMobileAndCloseMobileNavigation,
+      );
 
-  const checkIsMobileAndRemoveBlockScreen = () => {
-    isMobileNavigation.value || removeBlockScreen();
-  };
+      window.addEventListener('resize', checkIsNotMobileAndRemoveBlockScreen);
+    });
 
+    onUnmounted(() => removeBlockScreen());
+  };
   return {
-    checkIsMobile,
-    removeBlockScreen,
-    toggleBlockScreen,
-    toggleMobileNavigation,
-    checkIsMobileNavigationAndToggleBlockScreen,
-    checkIsMobileAndCloseMobileNavigation,
-    checkIsMobileAndRemoveBlockScreen,
+    isMobile,
+    isMobileNavigation,
+    toggleMobileNavigationAndToggleBlockScreen,
+    initNavigation,
   };
 };
