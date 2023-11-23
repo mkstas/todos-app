@@ -20,6 +20,7 @@ const router = createRouter({
       name: RoutesNameEnum.home,
       component: () => import('@/pages/TheHome'),
       meta: {
+        title: 'Обзор',
         requiredAuth: false,
       },
     },
