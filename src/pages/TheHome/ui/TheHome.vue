@@ -36,7 +36,7 @@ onMounted(() => {
             <BaseButtonLink :to="RoutesPathEnum.signin"> Вход </BaseButtonLink>
           </li>
           <li>
-            <BaseButtonLink :to="RoutesPathEnum.signin">
+            <BaseButtonLink :to="RoutesPathEnum.signup">
               Регистрация
             </BaseButtonLink>
           </li>

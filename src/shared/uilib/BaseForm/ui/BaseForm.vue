@@ -7,7 +7,7 @@ withDefaults(defineProps<BaseFormPropsType>(), {
 </script>
 
 <template>
-  <form :method="method" @submit.prevent>
+  <form :method="method">
     <slot></slot>
   </form>
 </template>

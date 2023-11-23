@@ -1,28 +1,23 @@
 <script lang="ts" setup>
-import { RoutesPathEnum } from '@/shared/typicode';
-import {
-  BaseLogotype,
-  BaseBgGradient,
-  BaseButtonLink,
-  BaseMat,
-} from '@/shared/uilib';
+import { RouterLink } from 'vue-router';
 
-import FormSignin from '@/widgets/FormSignin';
+import { RoutesPathEnum } from '@/shared/typicode';
+import { BaseContainer, BaseLogotype, BaseLink } from '@/shared/uilib';
+
+import { TheFormSignin } from '@/widgets/TheFormSignin';
 </script>
 
 <template>
-  <div
-    class="relative flex justify-center items-start min-h-screen pt-[20vh] pb-[5vh] overflow-y-hidden"
-  >
-    <BaseBgGradient class="absolute top-2/4 -translate-y-2/4 left-0 -z-10" />
-    <div class="grid gap-6 max-w-lg w-full">
-      <BaseLogotype />
-      <FormSignin />
-      <BaseMat>
-        <BaseButtonLink :to="RoutesPathEnum.signup">
-          Регистрация аккаунта
-        </BaseButtonLink>
-      </BaseMat>
-    </div>
-  </div>
+  <section class="py-32 bg-gradient-to-b from-sky-50 to-white">
+    <BaseContainer>
+      <RouterLink class="inline-block mb-8" :to="RoutesPathEnum.home">
+        <BaseLogotype />
+      </RouterLink>
+      <h1 class="mb-4 text-2xl font-bold">Регистрация</h1>
+      <TheFormSignin class="mb-8" />
+      <BaseLink :to="RoutesPathEnum.signup">
+        Еще нет аккаунта? Регистрация
+      </BaseLink>
+    </BaseContainer>
+  </section>
 </template>

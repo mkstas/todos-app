@@ -22,11 +22,11 @@ const emit = defineEmits(['update:modelValue']);
 
 <template>
   <div class="grid">
-    <label v-if="label" class="pb-2 text-lg font-semibold" :for="id">
+    <label v-if="label" class="pb-1 text-base font-semibold" :for="id">
       {{ label }}
     </label>
     <input
-      class="p-3 bg-white outline-none border border-gray-300 focus:border-gray-500 rounded-2xl text-xl text-gray-800 placeholder:text-gray-300"
+      class="px-3 py-2 bg-white outline-none border border-gray-300 focus:border-gray-500 rounded-2xl text-base text-gray-800 placeholder:text-gray-300"
       v-model="model"
       :type="type"
       :placeholder="placeholder"

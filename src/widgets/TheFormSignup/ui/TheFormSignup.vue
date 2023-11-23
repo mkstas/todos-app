@@ -1,29 +1,31 @@
 <script lang="ts" setup>
 import { Ref, ref } from 'vue';
 
-import {
-  BaseButton,
-  BaseInput,
-  BaseInputEnum,
-  BaseForm,
-  BaseMat,
-} from '@/shared/uilib';
+import { BaseButton, BaseInput, BaseInputEnum, BaseForm } from '@/shared/uilib';
 
 import { useUserStore } from '@/entities/user';
 
 const email: Ref<string> = ref('');
 const password: Ref<string> = ref('');
+const userName: Ref<string> = ref('');
 
-const { signin } = useUserStore();
+const { signup } = useUserStore();
 
 const onSubmitForm = async () => {
-  await signin(email.value, password.value);
+  await signup(email.value, password.value, userName.value);
 };
 </script>
 
 <template>
-  <BaseMat>
-    <BaseForm class="grid gap-6" @submit.prevent="onSubmitForm">
+  <div class="max-w-sm">
+    <BaseForm class="grid gap-4" @submit.prevent="onSubmitForm">
+      <BaseInput
+        v-model="userName"
+        label="Имя пользователя"
+        placeholder="user"
+        id="user"
+        :required="true"
+      />
       <BaseInput
         v-model="email"
         label="Электронная почта"
@@ -40,7 +42,7 @@ const onSubmitForm = async () => {
         :type="BaseInputEnum.password"
         :required="true"
       />
-      <BaseButton>Войти</BaseButton>
+      <BaseButton>Зарегистрироваться</BaseButton>
     </BaseForm>
-  </BaseMat>
+  </div>
 </template>
