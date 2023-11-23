@@ -13,6 +13,7 @@ const router = createRouter({
       component: () => import('@/pages/TheNotFound'),
       meta: {
         title: 'Страница не найдена',
+        layout: LayoutsEnum.auth,
       },
     },
     {
