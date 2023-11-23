@@ -11,7 +11,12 @@ const isOpenMobileMenu = ref(false);
 const currentYear = new Date().getFullYear();
 
 const checkIsMobile = () => {
-  window.innerWidth < 768 ? (isMobile.value = true) : (isMobile.value = false);
+  if (window.innerWidth < 768) {
+    isMobile.value = true;
+  } else {
+    isMobile.value = false;
+    isOpenMobileMenu.value = false;
+  }
 };
 
 const onClickBurger = () => {
@@ -19,6 +24,7 @@ const onClickBurger = () => {
 };
 
 onMounted(() => {
+  checkIsMobile();
   window.addEventListener('resize', checkIsMobile);
 });
 </script>
@@ -43,7 +49,7 @@ onMounted(() => {
         </ul>
 
         <ul
-          v-show="isOpenMobileMenu"
+          v-if="isOpenMobileMenu"
           class="fixed z-10 top-0 left-0 w-full h-full bg-white py-16 px-8"
         >
           <li>

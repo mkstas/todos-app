@@ -6,3 +6,4 @@ export * from './BaseForm';
 export * from './BaseInput';
 export * from './BaseLink';
 export * from './BaseLogotype';
+export * from './BaseTitle';
