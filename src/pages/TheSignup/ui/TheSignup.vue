@@ -13,7 +13,7 @@ import { TheFormSignup } from '@/widgets/TheFormSignup';
 </script>
 
 <template>
-  <BaseContainer>
+  <BaseContainer class="py-16 md:pt-32">
     <RouterLink class="inline-block mb-8" :to="RoutesPathEnum.home">
       <BaseLogotype />
     </RouterLink>

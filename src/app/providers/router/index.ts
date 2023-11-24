@@ -13,7 +13,6 @@ const router = createRouter({
       component: () => import('@/pages/TheNotFound'),
       meta: {
         title: 'Страница не найдена',
-        layout: LayoutsEnum.auth,
       },
     },
     {
@@ -32,7 +31,6 @@ const router = createRouter({
       meta: {
         title: 'Вход',
         requiredAuth: false,
-        layout: LayoutsEnum.auth,
       },
     },
     {
@@ -42,7 +40,6 @@ const router = createRouter({
       meta: {
         title: 'Регистрация',
         requiredAuth: false,
-        layout: LayoutsEnum.auth,
       },
     },
     {
