@@ -24,10 +24,27 @@ export const useUserStore = defineStore('user', () => {
   const router = useRouter();
 
   const userData: UserType = reactive({
-    uid: null,
     email: null,
+    uid: null,
     userName: null,
   });
+
+  const saveUserData = async (userName: string, email: string) => {
+    await addDoc(collection(firestore, 'users'), {
+      email,
+      uid: auth.currentUser?.uid,
+      userName,
+    });
+  };
+
+  const getUserData = async () => {
+    return await getDocs(
+      query(
+        collection(firestore, 'users'),
+        where('uid', '==', auth.currentUser?.uid),
+      ),
+    );
+  };
 
   const setUserData = (response: QuerySnapshot) => {
     response.forEach(doc => {
@@ -35,58 +52,50 @@ export const useUserStore = defineStore('user', () => {
     });
   };
 
-  const getUserData = async (uid: string | undefined) => {
-    const response = await getDocs(
-      query(collection(firestore, 'users'), where('uid', '==', uid)),
-    );
+  const signIn = async (email: string, password: string) => {
+    await signInWithEmailAndPassword(auth, email, password);
 
-    return response;
+    setUserData(await getUserData());
   };
 
-  const saveUserData = async (user: UserType) => {
-    const response = await addDoc(collection(firestore, 'users'), user);
-
-    return response;
-  };
-
-  const signin = async (email: string, password: string) => {
+  const signInWithRedirect = async (email: string, password: string) => {
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      await signIn(email, password);
 
-      const response = await getUserData(auth.currentUser?.uid);
+      router.push(RoutesPathEnum.home);
+    } catch (error) {}
+  };
 
-      setUserData(response);
+  const signUp = async (userName: string, email: string, password: string) => {
+    await createUserWithEmailAndPassword(auth, email, password);
+
+    await saveUserData(userName, email);
+
+    setUserData(await getUserData());
+  };
+
+  const signUpWithRedirect = async (
+    userName: string,
+    email: string,
+    password: string,
+  ) => {
+    try {
+      await signUp(userName, email, password);
 
       router.push(RoutesPathEnum.board);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
-  const signup = async (email: string, password: string, userName: string) => {
-    try {
-      const response = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password,
-      );
-
-      await saveUserData({ uid: response.user.uid, email, userName });
-
-      const res = await getUserData(auth.currentUser?.uid);
-
-      setUserData(res);
-
-      router.push(RoutesPathEnum.board);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const signout = async () => {
+  const signOutWithRedirect = async () => {
     await signOut(auth);
+
     router.push(RoutesPathEnum.home);
   };
 
-  return { userData, setUserData, getUserData, signin, signup, signout };
+  return {
+    userData,
+    signInWithRedirect,
+    signUpWithRedirect,
+    signOutWithRedirect,
+  };
 });

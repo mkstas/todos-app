@@ -8,10 +8,10 @@ import { useUserStore } from '@/entities/user';
 const email: Ref<string> = ref('');
 const password: Ref<string> = ref('');
 
-const { signin } = useUserStore();
+const { signInWithRedirect } = useUserStore();
 
 const onSubmitForm = async () => {
-  await signin(email.value, password.value);
+  await signInWithRedirect(email.value, password.value);
 };
 </script>
 

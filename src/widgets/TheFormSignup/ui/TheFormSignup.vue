@@ -5,14 +5,14 @@ import { BaseButton, BaseInput, BaseInputEnum, BaseForm } from '@/shared/uilib';
 
 import { useUserStore } from '@/entities/user';
 
+const userName: Ref<string> = ref('');
 const email: Ref<string> = ref('');
 const password: Ref<string> = ref('');
-const userName: Ref<string> = ref('');
 
-const { signup } = useUserStore();
+const { signUpWithRedirect } = useUserStore();
 
 const onSubmitForm = async () => {
-  await signup(email.value, password.value, userName.value);
+  await signUpWithRedirect(userName.value, email.value, password.value);
 };
 </script>
 
