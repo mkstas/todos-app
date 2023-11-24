@@ -6,9 +6,9 @@ export enum BaseInputEnum {
 
 export type BaseInputPropsType = {
   label?: string;
-  placeholder?: string;
   type?: BaseInputEnum;
   id?: string;
+  placeholder?: string;
   required?: boolean;
-  modelValue?: any;
+  modelValue: string;
 };

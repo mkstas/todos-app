@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import { RoutesPathEnum, RoutesNameEnum, LayoutsEnum } from '@/shared/typicode';
+import { RoutesPathEnum, RoutesNameEnum } from '@/shared/typicode';
 
 import { loadLayout, setTitle, checkAuth } from './middlewares';
 

@@ -7,7 +7,7 @@ import { BaseButtonLink } from '@/shared/uilib';
   <nav>
     <ul class="flex justify-start items-center gap-4">
       <li>
-        <BaseButtonLink :to="RoutesPathEnum.signin"> Вход </BaseButtonLink>
+        <BaseButtonLink :to="RoutesPathEnum.signin">Вход</BaseButtonLink>
       </li>
       <li>
         <BaseButtonLink :to="RoutesPathEnum.signup">

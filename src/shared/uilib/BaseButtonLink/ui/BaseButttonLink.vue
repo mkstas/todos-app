@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { RouterLink } from 'vue-router';
+
 import { BaseButtonLinkPropsType } from './BaseButtonLink.types';
 
 defineProps<BaseButtonLinkPropsType>();

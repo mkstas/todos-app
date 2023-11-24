@@ -3,6 +3,7 @@ import { App, createApp } from 'vue';
 import { auth } from '@/shared/firebase';
 
 import { pinia, router } from './providers';
+
 import VueApp from './index.vue';
 
 import './index.css';

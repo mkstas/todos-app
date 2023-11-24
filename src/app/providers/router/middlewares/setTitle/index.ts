@@ -5,6 +5,6 @@ export const setTitle = (
   from: RouteLocationNormalized,
   next: NavigationGuardNext,
 ) => {
-  to.meta.title ? (document.title = `${to.meta.title} | Task Tracker`) : null;
+  to.meta.title && (document.title = `${to.meta.title} | Task Tracker`);
   next();
 };
