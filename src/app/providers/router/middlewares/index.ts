@@ -1,2 +1,2 @@
-export * from './checkauth';
-export * from './setTitle';
+export * from './lib/checkAuth.middleware';
+export * from './lib/setTitle.middleware';

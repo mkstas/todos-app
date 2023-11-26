@@ -3,15 +3,29 @@ import { RouteLocationNormalized, NavigationGuardNext } from 'vue-router';
 import { auth } from '@/shared/firebase';
 import { RoutesPathEnum } from '@/shared/typicode';
 
-export const checkAuth = (
+import { useUserStore } from '@/entities/user';
+
+export const checkAuth = async (
   to: RouteLocationNormalized,
   from: RouteLocationNormalized,
   next: NavigationGuardNext,
 ) => {
+  const { setUser, getUser } = useUserStore();
+
   if (to.matched.some(path => path.meta.requiredAuth)) {
-    auth.currentUser?.uid ? next() : next({ path: RoutesPathEnum.signin });
+    if (auth.currentUser?.uid) {
+      setUser(await getUser());
+      next();
+    } else {
+      next({ path: RoutesPathEnum.signin });
+    }
   } else if (to.matched.some(path => path.meta.requiredAuth === false)) {
-    auth.currentUser?.uid ? next({ path: RoutesPathEnum.board }) : next();
+    if (auth.currentUser?.uid) {
+      next({ path: RoutesPathEnum.board });
+      setUser(await getUser());
+    } else {
+      next();
+    }
   } else {
     next();
   }

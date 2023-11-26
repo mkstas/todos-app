@@ -94,6 +94,8 @@ export const useUserStore = defineStore('user', () => {
 
   return {
     user,
+    setUser,
+    getUser,
     signInWithRedirect,
     signUpWithRedirect,
     signOutWithRedirect,
