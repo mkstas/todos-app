@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { BaseFormPropsType } from './BaseForm.types';
+import { BaseFormMethodsEnum, BaseFormPropsType } from './BaseForm.types';
 
 withDefaults(defineProps<BaseFormPropsType>(), {
-  method: 'get',
+  method: BaseFormMethodsEnum.get,
 });
 </script>
 

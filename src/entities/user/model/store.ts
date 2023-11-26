@@ -23,13 +23,13 @@ import { RoutesPathEnum, UserType } from '@/shared/typicode';
 export const useUserStore = defineStore('user', () => {
   const router = useRouter();
 
-  const userData: UserType = reactive({
+  const user: UserType = reactive({
     email: null,
     uid: null,
     userName: null,
   });
 
-  const saveUserData = async (userName: string, email: string) => {
+  const saveUser = async (userName: string, email: string) => {
     await addDoc(collection(firestore, 'users'), {
       email,
       uid: auth.currentUser?.uid,
@@ -37,7 +37,7 @@ export const useUserStore = defineStore('user', () => {
     });
   };
 
-  const getUserData = async () => {
+  const getUser = async () => {
     return await getDocs(
       query(
         collection(firestore, 'users'),
@@ -46,16 +46,16 @@ export const useUserStore = defineStore('user', () => {
     );
   };
 
-  const setUserData = (response: QuerySnapshot) => {
+  const setUser = (response: QuerySnapshot) => {
     response.forEach(doc => {
-      Object.assign(userData, doc.data());
+      Object.assign(user, doc.data());
     });
   };
 
   const signIn = async (email: string, password: string) => {
     await signInWithEmailAndPassword(auth, email, password);
 
-    setUserData(await getUserData());
+    setUser(await getUser());
   };
 
   const signInWithRedirect = async (email: string, password: string) => {
@@ -69,9 +69,9 @@ export const useUserStore = defineStore('user', () => {
   const signUp = async (userName: string, email: string, password: string) => {
     await createUserWithEmailAndPassword(auth, email, password);
 
-    await saveUserData(userName, email);
+    await saveUser(userName, email);
 
-    setUserData(await getUserData());
+    setUser(await getUser());
   };
 
   const signUpWithRedirect = async (
@@ -93,7 +93,7 @@ export const useUserStore = defineStore('user', () => {
   };
 
   return {
-    userData,
+    user,
     signInWithRedirect,
     signUpWithRedirect,
     signOutWithRedirect,

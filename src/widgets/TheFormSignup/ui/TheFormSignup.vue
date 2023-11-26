@@ -1,7 +1,12 @@
 <script lang="ts" setup>
 import { Ref, ref } from 'vue';
 
-import { BaseButton, BaseInput, BaseInputEnum, BaseForm } from '@/shared/uilib';
+import {
+  BaseButton,
+  BaseInput,
+  BaseInputTypeEnum,
+  BaseForm,
+} from '@/shared/uilib';
 
 import { useUserStore } from '@/entities/user';
 
@@ -24,23 +29,20 @@ const onSubmitForm = async () => {
         label="Имя пользователя"
         placeholder="user"
         id="user"
-        :required="true"
       />
       <BaseInput
         v-model="email"
         label="Электронная почта"
         placeholder="user@gmail.com"
         id="email"
-        :type="BaseInputEnum.email"
-        :required="true"
+        :type="BaseInputTypeEnum.email"
       />
       <BaseInput
         v-model="password"
         label="Пароль"
         placeholder="******"
         id="password"
-        :type="BaseInputEnum.password"
-        :required="true"
+        :type="BaseInputTypeEnum.password"
       />
       <BaseButton>Зарегистрироваться</BaseButton>
     </BaseForm>

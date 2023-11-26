@@ -1,14 +1,14 @@
-export enum BaseInputEnum {
+export enum BaseInputTypeEnum {
   text = 'text',
   email = 'email',
   password = 'password',
 }
 
 export type BaseInputPropsType = {
+  type?: BaseInputTypeEnum;
+  modelValue: string;
   label?: string;
-  type?: BaseInputEnum;
   id?: string;
   placeholder?: string;
   required?: boolean;
-  modelValue: string;
 };

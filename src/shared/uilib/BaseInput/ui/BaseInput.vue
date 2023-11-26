@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
-import { BaseInputPropsType, BaseInputEnum } from './BaseInput.types';
+import { BaseInputPropsType, BaseInputTypeEnum } from './BaseInput.types';
 
 const props = withDefaults(defineProps<BaseInputPropsType>(), {
-  type: BaseInputEnum.text,
-  required: false,
+  type: BaseInputTypeEnum.text,
+  required: true,
 });
 
 const model = computed({
