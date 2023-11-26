@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import { RoutesPathEnum, RoutesNameEnum } from '@/shared/typicode';
 
-import { loadLayout, setTitle, checkAuth } from './middlewares';
+import { setTitle, checkAuth } from './middlewares';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -56,6 +56,5 @@ const router = createRouter({
 
 router.beforeEach(checkAuth);
 router.beforeEach(setTitle);
-router.beforeEach(loadLayout);
 
 export { router };
