@@ -1,12 +1,9 @@
 <script lang="ts" setup>
-import { useUserStore } from '@/entities/user';
-
-const { signOutWithRedirect } = useUserStore();
+import { TheSidebar } from '@/widgets/TheSidebar';
 </script>
 
 <template>
-  <div>
-    <h1>Board</h1>
-    <button @click="signOutWithRedirect">Выйти</button>
-  </div>
+  <main class="md:grid md:grid-cols-[15rem_1fr] h-screen">
+    <TheSidebar />
+  </main>
 </template>
