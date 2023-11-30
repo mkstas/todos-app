@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { Ref, ref } from 'vue';
 
-import { BaseButtonClose } from '@/shared/uilib';
+import { BaseButtonClose, BaseHeading, BaseHeadingEnum } from '@/shared/uilib';
 
-import { ModalPropsType } from './Modal.types';
+import { BaseModalPropsType } from './BaseModal.types';
 
-defineProps<ModalPropsType>();
+defineProps<BaseModalPropsType>();
 
 const emits = defineEmits(['close']);
 
@@ -33,7 +33,7 @@ const onCloseModal = (event: Event) => {
       class="rounded-2xl bg-white shadow-md shadow-gray-800/15 py-3 px-5 w-full max-w-lg grid gap-4"
     >
       <div class="flex justify-between gap-4">
-        <p class="text-xl font-semibold">{{ title }}</p>
+        <BaseHeading :type="BaseHeadingEnum.h2">{{ title }}</BaseHeading>
         <BaseButtonClose id="close" ref="closeButton" />
       </div>
       <div>

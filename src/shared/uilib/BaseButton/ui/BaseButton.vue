@@ -6,7 +6,7 @@ const props = withDefaults(defineProps<BaseButtonPropsType>(), {
 });
 
 const classes = [
-  'inline-block py-2 px-6 outline-none bg-sky-500 hover:bg-sky-600 active:bg-sky-400 disabled:bg-sky-300 disabled:cursor-not-allowed focus-visible:bg-sky-600 shadow-md shadow-gray-800/15 transition-colors rounded-2xl text-center font-semibold text-white',
+  'inline-block py-2 px-6 outline-none bg-sky-500 hover:bg-sky-600 active:bg-sky-400 disabled:bg-sky-300 disabled:cursor-not-allowed focus-visible:bg-sky-600 shadow-md shadow-gray-800/15 transition-colors rounded-lg text-center font-semibold text-white',
   props.size,
 ];
 </script>

@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Heading, HeadingEnum } from '@/shared/uilib';
+import { BaseHeading, BaseHeadingEnum } from '@/shared/uilib';
 import { useOpenModal } from '@/shared/utils';
 
 import { TaskGroupCreate } from './TaskGroupCreate';
@@ -10,7 +10,7 @@ const { isOpenModal, openModal, closeModal } = useOpenModal();
 
 <template>
   <div class="grid gap-4">
-    <Heading :type="HeadingEnum.h3">Группы задач</Heading>
+    <BaseHeading :type="BaseHeadingEnum.h3">Группы задач</BaseHeading>
     <TaskGroupCreate @open-modal="openModal" />
     <TaskGroupModal v-if="isOpenModal" @close-modal="closeModal" />
   </div>

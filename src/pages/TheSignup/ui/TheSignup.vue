@@ -6,7 +6,8 @@ import {
   BaseContainer,
   BaseLogotype,
   BaseLink,
-  BaseTitle,
+  BaseHeading,
+  BaseHeadingEnum,
 } from '@/shared/uilib';
 
 import { TheFormSignup } from '@/widgets/TheFormSignup';
@@ -17,7 +18,7 @@ import { TheFormSignup } from '@/widgets/TheFormSignup';
     <RouterLink class="inline-block mb-8" :to="RoutesPathEnum.home">
       <BaseLogotype />
     </RouterLink>
-    <BaseTitle>Регистрация</BaseTitle>
+    <BaseHeading :type="BaseHeadingEnum.h1">Регистрация</BaseHeading>
     <TheFormSignup class="mb-8" />
     <BaseLink :to="RoutesPathEnum.signin"> Уже есть аккаунт? Войдите </BaseLink>
   </BaseContainer>

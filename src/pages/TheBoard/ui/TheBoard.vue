@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { BaseTitle } from '@/shared/uilib';
+import { BaseHeading, BaseHeadingEnum } from '@/shared/uilib';
 
 import { TheSidebar } from '@/widgets/TheSidebar';
 </script>
@@ -9,7 +9,7 @@ import { TheSidebar } from '@/widgets/TheSidebar';
     <TheSidebar />
 
     <div class="grid gap-6 p-3 md:pl-8">
-      <BaseTitle>Доска задач</BaseTitle>
+      <BaseHeading :type="BaseHeadingEnum.h1">Доска задач</BaseHeading>
     </div>
   </main>
 </template>
