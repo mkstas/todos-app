@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
+
 import { BaseInputPropsType, BaseInputTypeEnum } from './BaseInput.types';
 
 const props = withDefaults(defineProps<BaseInputPropsType>(), {
@@ -26,7 +27,7 @@ const emit = defineEmits(['update:modelValue']);
       {{ label }}
     </label>
     <input
-      class="px-3 py-2 bg-white outline-none border border-gray-300 focus:border-gray-500 rounded-2xl text-base text-gray-800 placeholder:text-gray-300"
+      class="px-3 py-2 bg-white outline-none border border-gray-300 focus:border-gray-500 rounded-lg text-base text-gray-800 placeholder:text-gray-300"
       v-model="model"
       :type="type"
       :placeholder="placeholder"

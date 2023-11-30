@@ -14,12 +14,12 @@ import { FormSignin } from '@/features/FormSignin';
 </script>
 
 <template>
-  <BaseContainer class="grid gap-8 py-16 md:pt-32">
-    <RouterLink class="inline-block" :to="RoutesPathEnum.home">
+  <BaseContainer class="py-16 md:pt-32">
+    <RouterLink class="inline-block mb-8" :to="RoutesPathEnum.home">
       <BaseLogotype />
     </RouterLink>
-    <BaseHeading :type="BaseHeadingEnum.h1">Вход</BaseHeading>
-    <FormSignin />
+    <BaseHeading :type="BaseHeadingEnum.h1" class="mb-6">Вход</BaseHeading>
+    <FormSignin class="mb-8" />
     <BaseLink :to="RoutesPathEnum.signup">
       Еще нет аккаунта? Регистрация
     </BaseLink>
