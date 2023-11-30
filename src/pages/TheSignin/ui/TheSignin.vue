@@ -10,16 +10,16 @@ import {
   BaseHeadingEnum,
 } from '@/shared/uilib';
 
-import { TheFormSignin } from '@/widgets/TheFormSignin';
+import { FormSignin } from '@/features/FormSignin';
 </script>
 
 <template>
-  <BaseContainer class="py-16 md:pt-32">
-    <RouterLink class="inline-block mb-8" :to="RoutesPathEnum.home">
+  <BaseContainer class="grid gap-8 py-16 md:pt-32">
+    <RouterLink class="inline-block" :to="RoutesPathEnum.home">
       <BaseLogotype />
     </RouterLink>
     <BaseHeading :type="BaseHeadingEnum.h1">Вход</BaseHeading>
-    <TheFormSignin class="mb-8" />
+    <FormSignin />
     <BaseLink :to="RoutesPathEnum.signup">
       Еще нет аккаунта? Регистрация
     </BaseLink>
