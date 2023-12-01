@@ -3,6 +3,7 @@ export enum RoutesPathEnum {
   signin = '/signin',
   signup = '/signup',
   board = '/board',
+  tasks = '/board/:id',
   notFound = '/:pathMatch(.*)*',
 }
 
@@ -11,5 +12,6 @@ export enum RoutesNameEnum {
   signin = 'SignIn',
   signup = 'SignUp',
   board = 'Board',
+  tasks = 'Tasks',
   notFound = 'NotFound',
 }
