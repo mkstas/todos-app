@@ -16,4 +16,6 @@ export type TaskType = {
   text: string;
   priority: TaskPriorityEnum;
   status: TaskStatusEnum;
+  createdAt: number;
+  updatedAt: number;
 };

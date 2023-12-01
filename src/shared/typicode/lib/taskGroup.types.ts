@@ -8,4 +8,6 @@ export type TaskGroupType = {
   id: string;
   title: string;
   status: TaskGroupStatusEnum;
+  createdAt: number;
+  updatedAt: number;
 };
