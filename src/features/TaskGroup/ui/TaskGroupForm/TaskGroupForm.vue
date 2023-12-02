@@ -1,19 +1,26 @@
 <script lang="ts" setup>
 import { Ref, ref } from 'vue';
+import { useRouter } from 'vue-router';
 
 import { useTasksGroupStore } from '@/entities/tasksGroup';
 
 import { BaseButton, BaseForm, BaseInput } from '@/shared/uilib';
+import { RoutesNameEnum } from '@/shared/typicode';
 
 const groupTitle: Ref<string> = ref('');
 
 const emit = defineEmits(['close-modal']);
 
-const { createTaskGroup } = useTasksGroupStore();
+const router = useRouter();
+
+const { createAndAddTaskGroup } = useTasksGroupStore();
 
 const onSubmitForm = async () => {
-  await createTaskGroup(groupTitle.value);
+  const response = await createAndAddTaskGroup(groupTitle.value);
+
   emit('close-modal');
+
+  router.push({ name: RoutesNameEnum.tasks, params: { id: response?.id } });
 };
 </script>
 

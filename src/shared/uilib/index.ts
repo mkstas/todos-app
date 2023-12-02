@@ -1,5 +1,6 @@
 export * from './BaseButton';
 export * from './BaseButtonClose';
+export * from './BaseButtonDelete';
 export * from './BaseButtonLink';
 export * from './BaseContainer';
 export * from './BaseForm';

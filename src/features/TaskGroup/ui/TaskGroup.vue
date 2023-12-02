@@ -2,6 +2,7 @@
 import { BaseHeading, BaseHeadingEnum } from '@/shared/uilib';
 import { useOpenModal } from '@/shared/utils';
 
+import { TaskGroupList } from './TaskGroupList';
 import { TaskGroupCreate } from './TaskGroupCreate';
 import { TaskGroupModal } from './TaskGroupModal';
 
@@ -11,6 +12,7 @@ const { isOpenModal, openModal, closeModal } = useOpenModal();
 <template>
   <div class="grid gap-4">
     <BaseHeading :type="BaseHeadingEnum.h3">Группы задач</BaseHeading>
+    <TaskGroupList />
     <TaskGroupCreate @open-modal="openModal" />
     <TaskGroupModal v-if="isOpenModal" @close-modal="closeModal" />
   </div>

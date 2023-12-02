@@ -50,6 +50,13 @@ const router = createRouter({
         title: 'Доска задач',
         requiredAuth: true,
       },
+      children: [
+        {
+          path: ':id',
+          name: RoutesNameEnum.tasks,
+          component: () => import('@/pages/TheBoard'),
+        },
+      ],
     },
   ],
 });

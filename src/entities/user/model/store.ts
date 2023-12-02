@@ -18,29 +18,33 @@ import {
 } from 'firebase/firestore';
 
 import { auth, firestore } from '@/shared/firebase';
-import { RoutesPathEnum, UserType } from '@/shared/typicode';
+import { CollectionEnum, RoutesPathEnum, UserType } from '@/shared/typicode';
 
-export const useUserStore = defineStore('user', () => {
+export const useUserStore = defineStore(CollectionEnum.users, () => {
   const router = useRouter();
 
   const user: UserType = reactive({
-    email: null,
     uid: null,
+    email: null,
     userName: null,
+    createdAt: null,
+    updatedAt: null,
   });
 
   const saveUser = async (userName: string, email: string) => {
-    await addDoc(collection(firestore, 'users'), {
-      email,
+    await addDoc(collection(firestore, CollectionEnum.users), {
       uid: auth.currentUser?.uid,
-      userName,
-    });
+      email: email,
+      userName: userName,
+      createdAt: Date.now(),
+      updatedAt: Date.now(),
+    } as UserType);
   };
 
   const getUser = async () => {
     return await getDocs(
       query(
-        collection(firestore, 'users'),
+        collection(firestore, CollectionEnum.users),
         where('uid', '==', auth.currentUser?.uid),
       ),
     );
