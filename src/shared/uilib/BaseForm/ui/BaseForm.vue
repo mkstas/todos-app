@@ -2,7 +2,7 @@
 import { BaseFormMethodsEnum, BaseFormPropsType } from './BaseForm.types';
 
 withDefaults(defineProps<BaseFormPropsType>(), {
-  method: BaseFormMethodsEnum.get,
+  method: BaseFormMethodsEnum.post,
 });
 </script>
 

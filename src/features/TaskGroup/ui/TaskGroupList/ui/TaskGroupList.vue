@@ -1,32 +1,28 @@
 <script lang="ts" setup>
 import { onMounted } from 'vue';
 
-import { RoutesNameEnum } from '@/shared/typicode';
-import { BaseButtonDelete } from '@/shared/uilib';
-
 import { useTasksGroupStore } from '@/entities/tasksGroup';
 
-const { taskGroups, getAndSetTaskGroups } = useTasksGroupStore();
+import { TaskGroupItem } from '../../TaskGroupItem';
+
+const taskGroupsStore = useTasksGroupStore();
+
+const onDeleteTaskGroup = (id: string) => {
+  taskGroupsStore.deleteAndRemoveTaskGroup(id);
+};
 
 onMounted(async () => {
-  await getAndSetTaskGroups();
+  await taskGroupsStore.getAndSetTaskGroups();
 });
 </script>
 
 <template>
-  <ul>
-    <li v-for="item in taskGroups" :key="item.id">
-      <RouterLink
-        :to="{
-          name: RoutesNameEnum.tasks,
-          params: {
-            id: item.id,
-          },
-        }"
-      >
-        {{ item.title }}
-      </RouterLink>
-      <BaseButtonDelete />
-    </li>
+  <ul class="grid gap-2">
+    <TaskGroupItem
+      v-for="taskGroup in taskGroupsStore.taskGroups"
+      :key="taskGroup.id"
+      :task-group="taskGroup"
+      @delete-task-group="onDeleteTaskGroup(taskGroup.id)"
+    />
   </ul>
 </template>

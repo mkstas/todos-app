@@ -57,18 +57,23 @@ export const useTasksGroupStore = defineStore(CollectionEnum.taskGroups, () => {
     } catch (error) {}
   };
 
-  const createAndAddTaskGroup = async (title: string) => {
-    const res = await createTaskGroup(title);
-
+  const addTaskGroup = (id: string | undefined, title: string) => {
     taskGroups.value.push({
+      id: id,
       uid: auth.currentUser?.uid,
       status: TaskGroupStatusEnum.proccess,
       title: title,
       createdAt: Date.now(),
       updatedAt: Date.now(),
     } as TaskGroupType);
+  };
 
-    return res;
+  const createAndAddTaskGroup = async (title: string) => {
+    const response = await createTaskGroup(title);
+
+    addTaskGroup(response?.id, title);
+
+    return response;
   };
 
   const deleteTaskGroup = async (id: string) => {
@@ -79,13 +84,27 @@ export const useTasksGroupStore = defineStore(CollectionEnum.taskGroups, () => {
     } catch (error) {}
   };
 
+  const removeTaskGroup = (id: string) => {
+    taskGroups.value = taskGroups.value.filter(
+      taskGroup => taskGroup.id !== id,
+    );
+  };
+
+  const deleteAndRemoveTaskGroup = async (id: string) => {
+    await deleteTaskGroup(id);
+    removeTaskGroup(id);
+  };
+
   return {
     taskGroups,
     getTaskGroups,
     setTaskGroups,
     getAndSetTaskGroups,
     createTaskGroup,
+    addTaskGroup,
     createAndAddTaskGroup,
     deleteTaskGroup,
+    removeTaskGroup,
+    deleteAndRemoveTaskGroup,
   };
 });

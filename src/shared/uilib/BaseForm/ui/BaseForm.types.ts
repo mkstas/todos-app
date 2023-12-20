@@ -1,6 +1,6 @@
 export enum BaseFormMethodsEnum {
-  get = 'get',
-  post = 'post',
+  get = 'GET',
+  post = 'POST',
 }
 
 export type BaseFormPropsType = {
