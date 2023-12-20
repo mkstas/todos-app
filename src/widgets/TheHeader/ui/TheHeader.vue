@@ -28,11 +28,11 @@ initNavigation();
       </RouterLink>
 
       <TheNavigation v-if="!isMobile" />
-      <TheNavigationMobile :is-open="isMobileNavigation" />
       <TheButtonBurger
         v-if="isMobile"
         @click="toggleMobileNavigationAndToggleBlockScreen"
       />
+      <TheNavigationMobile v-if="isMobile" :is-open="isMobileNavigation" />
     </div>
   </header>
 </template>

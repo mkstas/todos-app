@@ -30,7 +30,7 @@ const onCloseModal = (event: Event) => {
     @click="onCloseModal"
   >
     <div
-      class="rounded-2xl bg-white shadow-md shadow-gray-800/15 py-3 px-5 w-full max-w-lg grid gap-4"
+      class="rounded-lg bg-white shadow-md shadow-gray-800/15 py-3 px-4 w-full max-w-lg grid gap-4"
     >
       <div class="flex justify-between items-center gap-4">
         <BaseHeading :type="BaseHeadingEnum.h2">{{ title }}</BaseHeading>
