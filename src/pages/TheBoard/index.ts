@@ -1,1 +1,1 @@
-export { default } from './ui/TheBoard.vue';
+export { default } from './TheBoard.vue';

@@ -1,1 +1,1 @@
-export { default as BaseButtonClose } from './ui/BaseButtonClose.vue';
+export { default as BaseButtonClose } from './BaseButtonClose.vue';

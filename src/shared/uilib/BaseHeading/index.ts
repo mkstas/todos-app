@@ -1,2 +1,2 @@
-export { default as BaseHeading } from './ui/BaseHeading.vue';
-export * from './ui/BaseHeading.types';
+export { default as BaseHeading } from './BaseHeading.vue';
+export * from './BaseHeading.types';

@@ -1,2 +1,2 @@
-export { default as BaseButtonLink } from './ui/BaseButttonLink.vue';
-export * from './ui/BaseButtonLink.types';
+export { default as BaseButtonLink } from './BaseButttonLink.vue';
+export * from './BaseButtonLink.types';

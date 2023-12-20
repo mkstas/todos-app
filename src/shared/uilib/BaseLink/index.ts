@@ -1,2 +1,2 @@
-export { default as BaseLink } from './ui/BaseLink.vue';
-export * from './ui/BaseLink.types';
+export { default as BaseLink } from './BaseLink.vue';
+export * from './BaseLink.types';

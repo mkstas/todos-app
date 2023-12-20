@@ -1,2 +1,2 @@
-export { default as BaseForm } from './ui/BaseForm.vue';
-export * from './ui/BaseForm.types';
+export { default as BaseForm } from './BaseForm.vue';
+export * from './BaseForm.types';

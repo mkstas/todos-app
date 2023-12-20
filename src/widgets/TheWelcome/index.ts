@@ -1,1 +1,1 @@
-export { default as TheWelcome } from './ui/TheWelcome.vue';
+export { default as TheWelcome } from './TheWelcome.vue';

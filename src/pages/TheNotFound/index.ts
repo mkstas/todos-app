@@ -1,1 +1,1 @@
-export { default } from './ui/TheNotFound.vue';
+export { default } from './TheNotFound.vue';

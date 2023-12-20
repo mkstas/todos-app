@@ -1,1 +1,1 @@
-export { default as BaseButtonDelete } from './ui/BaseButtonDelete.vue';
+export { default as BaseButtonDelete } from './BaseButtonDelete.vue';

@@ -1,1 +1,1 @@
-export { default as BaseLogotype } from './ui/BaseLogotype.vue';
+export { default as BaseLogotype } from './BaseLogotype.vue';

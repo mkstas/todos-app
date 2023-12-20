@@ -1,1 +1,1 @@
-export { default as TaskGroup } from './ui/TaskGroup.vue';
+export { default as TaskGroup } from './TaskGroup.vue';
