@@ -2,15 +2,17 @@ import { Ref, ref } from 'vue';
 import { defineStore } from 'pinia';
 
 import {
+  DocumentSnapshot,
   QuerySnapshot,
   addDoc,
   getDocs,
+  getDoc,
   updateDoc,
   collection,
   query,
   where,
-  doc,
   orderBy,
+  doc,
 } from 'firebase/firestore';
 
 import {
@@ -23,6 +25,18 @@ import { auth, firestore } from '@/shared/firebase';
 
 export const useTasksGroupStore = defineStore(CollectionEnum.taskGroups, () => {
   const taskGroups: Ref<TaskGroupType[]> = ref([]);
+
+  const getTaskGroup = async (id: string) => {
+    return await getDoc(doc(firestore, CollectionEnum.taskGroups, id));
+  };
+
+  const setTaskGroup = (response: DocumentSnapshot): string => {
+    return response.data()?.title;
+  };
+
+  const getAndSetTaskGroup = async (id: string) => {
+    return setTaskGroup(await getTaskGroup(id));
+  };
 
   const getTaskGroups = async () => {
     return await getDocs(
@@ -97,14 +111,9 @@ export const useTasksGroupStore = defineStore(CollectionEnum.taskGroups, () => {
 
   return {
     taskGroups,
-    getTaskGroups,
-    setTaskGroups,
+    getAndSetTaskGroup,
     getAndSetTaskGroups,
-    createTaskGroup,
-    addTaskGroup,
     createAndAddTaskGroup,
-    deleteTaskGroup,
-    removeTaskGroup,
     deleteAndRemoveTaskGroup,
   };
 });

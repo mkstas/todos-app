@@ -1,8 +1,8 @@
 import { defineStore } from 'pinia';
 
-import { TaskType } from '@/shared/typicode';
+import { CollectionEnum, TaskType } from '@/shared/typicode';
 
-export const useTasksStore = defineStore('tasks', () => {
+export const useTasksStore = defineStore(CollectionEnum.tasks, () => {
   const tasks: TaskType[] = [];
 
   const getTasks = async () => {};
