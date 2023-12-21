@@ -1,1 +1,1 @@
-export { default as TheNavigation } from './ui/TheNavigation.vue';
+export { default as TheNavigation } from './TheNavigation.vue';

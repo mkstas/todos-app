@@ -2,7 +2,7 @@
 import { Ref, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-import { useTasksGroupStore } from '@/entities/tasksGroup';
+import { useTaskGroupsStore } from '@/entities/taskGroups';
 
 import { BaseButton, BaseForm, BaseInput } from '@/shared/uilib';
 import { RoutesNameEnum } from '@/shared/typicode';
@@ -13,7 +13,7 @@ const emit = defineEmits(['close-modal']);
 
 const router = useRouter();
 
-const { createAndAddTaskGroup } = useTasksGroupStore();
+const { createAndAddTaskGroup } = useTaskGroupsStore();
 
 const onSubmitForm = async () => {
   const response = await createAndAddTaskGroup(groupTitle.value);

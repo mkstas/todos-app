@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router';
 
 import { BaseHeading, BaseHeadingEnum } from '@/shared/uilib';
 
-import { useTasksGroupStore } from '@/entities/tasksGroup';
+import { useTaskGroupsStore } from '@/entities/taskGroups';
 
 import { TheSidebar } from '@/widgets/TheSidebar';
 import { TheTaskList } from '@/widgets/TheTaskList';
@@ -13,7 +13,7 @@ const taskGroupTitle: Ref<string> = ref('');
 
 const route = useRoute();
 
-const { getAndSetTaskGroup } = useTasksGroupStore();
+const { getAndSetTaskGroup } = useTaskGroupsStore();
 
 const getTaskGroupTitle = async () => {
   taskGroupTitle.value = await getAndSetTaskGroup(route.params.id as string);

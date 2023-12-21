@@ -1,2 +1,2 @@
-export * from './ui/TheNavigationMobile.types';
-export { default as TheNavigationMobile } from './ui/TheNavigationMobile.vue';
+export * from './TheNavigationMobile.types';
+export { default as TheNavigationMobile } from './TheNavigationMobile.vue';

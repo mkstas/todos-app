@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { onMounted } from 'vue';
 
-import { useTasksGroupStore } from '@/entities/tasksGroup';
+import { useTaskGroupsStore } from '@/entities/taskGroups';
 
 import { TaskGroupItem } from '../TaskGroupItem';
 
-const taskGroupsStore = useTasksGroupStore();
+const taskGroupsStore = useTaskGroupsStore();
 
 const onDeleteTaskGroup = (id: string) => {
   taskGroupsStore.deleteAndRemoveTaskGroup(id);
