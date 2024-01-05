@@ -12,8 +12,9 @@ export enum TaskStatusEnum {
 }
 
 export type TaskType = {
-  sectionId: string;
-  text: string;
+  taskGroupId: string;
+  title: string;
+  description: string;
   priority: TaskPriorityEnum;
   status: TaskStatusEnum;
   createdAt: number;
