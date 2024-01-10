@@ -1,5 +1,6 @@
 export * from './Button';
 export * from './ButtonAdd';
+export * from './ButtonBurger';
 export * from './ButtonClose';
 export * from './ButtonDelete';
 export * from './ButtonLink';
