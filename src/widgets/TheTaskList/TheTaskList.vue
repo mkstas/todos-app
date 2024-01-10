@@ -1,37 +1,34 @@
 <script lang="ts" setup>
-import {
-  BaseHeading,
-  BaseHeadingEnum,
-  BaseButton,
-  BaseModal,
-  BaseForm,
-  BaseInput,
-} from '@/shared/uilib';
+import { watch, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 
-import { useOpenModal } from '@/shared/utils';
+import { useTaskStore } from '@/entities/task';
 
-import { TheTaskListPropsType } from './TheTaskList.types';
-import { Ref, ref } from 'vue';
+import { TaskListItem } from './TaskListItem';
+import { TaskListCreate } from './TaskListCreate';
 
-defineProps<TheTaskListPropsType>();
+const route = useRoute();
+const taskStore = useTaskStore();
 
-const task: Ref<string> = ref('');
+onMounted(
+  async () => await taskStore.getAndSetTasks(route.params.id as string),
+);
 
-const { isOpenModal, openModal, closeModal } = useOpenModal();
+watch(
+  () => route.params.id,
+  async () => await taskStore.getAndSetTasks(route.params.id as string),
+);
 </script>
 
 <template>
-  <div>
-    <BaseHeading :type="BaseHeadingEnum.h2">
-      {{ title }}
-    </BaseHeading>
-
-    <BaseButton @click="openModal">Новая задача</BaseButton>
-
-    <BaseModal v-if="isOpenModal" @close="closeModal">
-      <BaseForm>
-        <BaseInput v-model="task" />
-      </BaseForm>
-    </BaseModal>
+  <div class="grid gap-2">
+    <div class="divide-y divide-slate-200">
+      <TaskListItem
+        v-for="task in taskStore.tasks"
+        :key="task.taskGroupId"
+        :task="task"
+      />
+    </div>
+    <TaskListCreate />
   </div>
 </template>

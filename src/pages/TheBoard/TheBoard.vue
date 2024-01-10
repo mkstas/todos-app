@@ -12,7 +12,6 @@ import { TheTaskList } from '@/widgets/TheTaskList';
 const taskGroupTitle: Ref<string> = ref('');
 
 const route = useRoute();
-
 const { getAndSetTaskGroup } = useTaskGroupsStore();
 
 const getTaskGroupTitle = async () => {
@@ -30,12 +29,15 @@ watch(
 <template>
   <main class="md:grid md:grid-cols-[20rem_1fr] h-screen">
     <TheSidebar />
-
     <section class="p-3 md:pl-8">
-      <div class="grid gap-2 max-w-2xl mx-auto">
+      <div class="grid gap-3 max-w-2xl mx-auto">
         <BaseHeading :type="BaseHeadingEnum.h1">Доска задач</BaseHeading>
-
-        <TheTaskList :title="taskGroupTitle" />
+        <div class="grid gap-5">
+          <BaseHeading :type="BaseHeadingEnum.h2">
+            {{ taskGroupTitle }}
+          </BaseHeading>
+          <TheTaskList />
+        </div>
       </div>
     </section>
   </main>
