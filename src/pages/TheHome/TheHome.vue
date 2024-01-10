@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { TheHeader } from '@/widgets/TheHeader';
-import { TheWelcome } from '@/widgets/TheWelcome';
+import { TheIntro } from '@/widgets/TheIntro';
 import { TheFooter } from '@/widgets/TheFooter';
 </script>
 
@@ -8,7 +8,7 @@ import { TheFooter } from '@/widgets/TheFooter';
   <div class="flex flex-col min-h-screen">
     <TheHeader />
     <main class="flex-1 pt-16 bg-gradient-to-b from-sky-50 to-white">
-      <TheWelcome />
+      <TheIntro />
     </main>
     <TheFooter />
   </div>

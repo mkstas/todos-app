@@ -7,7 +7,7 @@ import { BaseHeading, BaseHeadingEnum } from '@/shared/uilib';
 import { useTaskGroupsStore } from '@/entities/taskGroups';
 
 import { TheSidebar } from '@/widgets/TheSidebar';
-import { TheTaskList } from '@/widgets/TheTaskList';
+import { TaskList } from '@/widgets/TaskList';
 
 const taskGroupTitle: Ref<string> = ref('');
 
@@ -36,7 +36,7 @@ watch(
           <BaseHeading :type="BaseHeadingEnum.h2">
             {{ taskGroupTitle }}
           </BaseHeading>
-          <TheTaskList />
+          <TaskList />
         </div>
       </div>
     </section>

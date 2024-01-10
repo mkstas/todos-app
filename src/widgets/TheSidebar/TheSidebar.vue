@@ -3,7 +3,7 @@ import { BaseButton, BaseLogotype } from '@/shared/uilib';
 
 import { useUserStore } from '@/entities/user';
 
-import { UserInfo } from '@/features/UserInfo';
+import { TheUserInfo } from '@/features/TheUserInfo';
 import { TaskGroup } from '@/features/TaskGroup';
 
 const { signOutWithRedirect } = useUserStore();
@@ -15,7 +15,7 @@ const { signOutWithRedirect } = useUserStore();
   >
     <BaseLogotype />
     <div class="flex-1 flex flex-col gap-8">
-      <UserInfo />
+      <TheUserInfo />
       <TaskGroup />
     </div>
     <BaseButton @click="signOutWithRedirect">Выйти</BaseButton>

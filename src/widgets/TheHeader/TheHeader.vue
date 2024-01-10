@@ -6,7 +6,7 @@ import { BaseLogotype } from '@/shared/uilib';
 
 import { TheNavigation } from '@/features/TheNavigation';
 import { TheNavigationMobile } from '@/features/TheNavigationMobile';
-import { TheButtonBurger } from '@/features/TheButtonBurger';
+import { ButtonBurger } from '@/features/ButtonBurger';
 
 import { useNavigation } from './lib/useNavigation';
 
@@ -28,7 +28,7 @@ initNavigation();
       </RouterLink>
 
       <TheNavigation v-if="!isMobile" />
-      <TheButtonBurger
+      <ButtonBurger
         v-if="isMobile"
         @click="toggleMobileNavigationAndToggleBlockScreen"
       />

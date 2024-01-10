@@ -10,7 +10,7 @@ import {
   BaseHeadingEnum,
 } from '@/shared/uilib';
 
-import { FormSignup } from '@/features/FormSignup';
+import { TheFormSignup } from '@/features/TheFormSignup';
 </script>
 
 <template>
@@ -21,7 +21,7 @@ import { FormSignup } from '@/features/FormSignup';
     <BaseHeading :type="BaseHeadingEnum.h1" class="mb-6">
       Регистрация
     </BaseHeading>
-    <FormSignup class="mb-8" />
+    <TheFormSignup class="mb-8" />
     <BaseLink :to="RoutesPathEnum.signin">Уже есть аккаунт? Войдите</BaseLink>
   </BaseContainer>
 </template>
