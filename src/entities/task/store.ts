@@ -2,15 +2,15 @@ import { Ref, ref } from 'vue';
 import { defineStore } from 'pinia';
 
 import {
-  DocumentSnapshot,
   addDoc,
-  collection,
-  doc,
   getDoc,
   getDocs,
+  doc,
+  collection,
   query,
   where,
   orderBy,
+  DocumentSnapshot,
   QuerySnapshot,
 } from 'firebase/firestore';
 

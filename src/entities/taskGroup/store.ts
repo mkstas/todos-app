@@ -2,17 +2,17 @@ import { Ref, ref } from 'vue';
 import { defineStore } from 'pinia';
 
 import {
-  DocumentSnapshot,
-  QuerySnapshot,
   addDoc,
-  getDocs,
   getDoc,
+  getDocs,
   updateDoc,
+  doc,
   collection,
   query,
   where,
   orderBy,
-  doc,
+  DocumentSnapshot,
+  QuerySnapshot,
 } from 'firebase/firestore';
 
 import {
@@ -23,7 +23,7 @@ import {
 
 import { auth, firestore } from '@/shared/firebase';
 
-export const useTaskGroupsStore = defineStore(CollectionEnum.taskGroups, () => {
+export const useTaskGroupStore = defineStore(CollectionEnum.taskGroups, () => {
   const taskGroups: Ref<TaskGroupType[]> = ref([]);
 
   const getTaskGroup = async (id: string) => {
