@@ -1,17 +1,13 @@
 <script lang="ts" setup>
-import { BaseButtonAdd } from '@/shared/uilib';
+import { ButtonAdd } from '@/shared/uilib';
 import { useOpenModal } from '@/shared/utils';
 
-import { TaskModal } from '@/features/TaskModal';
+import { TaskModal } from '../TaskModal';
 
 const { isOpenModal, openModal, closeModal } = useOpenModal();
 </script>
 
 <template>
-  <BaseButtonAdd
-    class="justify-center"
-    label="Новая задача"
-    @click="openModal"
-  />
+  <ButtonAdd class="justify-center" label="Новая задача" @click="openModal" />
   <TaskModal v-if="isOpenModal" @close-modal="closeModal()" />
 </template>
