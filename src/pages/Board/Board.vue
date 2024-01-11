@@ -2,17 +2,17 @@
 import { Ref, ref, watch, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
-import { BaseHeading, BaseHeadingEnum } from '@/shared/uilib';
+import { Heading, HeadingEnum } from '@/shared/uilib';
 
-import { useTaskGroupsStore } from '@/entities/taskGroups';
+import { useTaskGroupStore } from '@/entities/taskGroup';
 
-import { TheSidebar } from '@/widgets/TheSidebar';
+import { Sidebar } from '@/widgets/Sidebar';
 import { TaskList } from '@/widgets/TaskList';
 
 const taskGroupTitle: Ref<string> = ref('');
 
 const route = useRoute();
-const { getAndSetTaskGroup } = useTaskGroupsStore();
+const { getAndSetTaskGroup } = useTaskGroupStore();
 
 const getTaskGroupTitle = async () => {
   taskGroupTitle.value = await getAndSetTaskGroup(route.params.id as string);
@@ -28,14 +28,14 @@ watch(
 
 <template>
   <main class="md:grid md:grid-cols-[20rem_1fr] h-screen">
-    <TheSidebar />
+    <Sidebar />
     <section class="p-3 md:pl-8">
       <div class="grid gap-3 max-w-2xl mx-auto">
-        <BaseHeading :type="BaseHeadingEnum.h1">Доска задач</BaseHeading>
+        <Heading :type="HeadingEnum.h1">Доска задач</Heading>
         <div class="grid gap-5">
-          <BaseHeading :type="BaseHeadingEnum.h2">
+          <Heading :type="HeadingEnum.h2">
             {{ taskGroupTitle }}
-          </BaseHeading>
+          </Heading>
           <TaskList />
         </div>
       </div>

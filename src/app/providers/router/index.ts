@@ -10,7 +10,7 @@ const router = createRouter({
     {
       path: RoutesPathEnum.notFound,
       name: RoutesNameEnum.notFound,
-      component: () => import('@/pages/TheNotFound'),
+      component: () => import('@/pages/NotFound'),
       meta: {
         title: 'Страница не найдена',
       },
@@ -18,7 +18,7 @@ const router = createRouter({
     {
       path: RoutesPathEnum.home,
       name: RoutesNameEnum.home,
-      component: () => import('@/pages/TheHome'),
+      component: () => import('@/pages/Home'),
       meta: {
         title: 'Обзор',
         requiredAuth: false,
@@ -27,7 +27,7 @@ const router = createRouter({
     {
       path: RoutesPathEnum.signin,
       name: RoutesNameEnum.signin,
-      component: () => import('@/pages/TheSignin'),
+      component: () => import('@/pages/Signin'),
       meta: {
         title: 'Вход',
         requiredAuth: false,
@@ -36,7 +36,7 @@ const router = createRouter({
     {
       path: RoutesPathEnum.signup,
       name: RoutesNameEnum.signup,
-      component: () => import('@/pages/TheSignup'),
+      component: () => import('@/pages/Signup'),
       meta: {
         title: 'Регистрация',
         requiredAuth: false,
@@ -45,7 +45,7 @@ const router = createRouter({
     {
       path: RoutesPathEnum.board,
       name: RoutesNameEnum.board,
-      component: () => import('@/pages/TheBoard'),
+      component: () => import('@/pages/Board'),
       meta: {
         title: 'Доска задач',
         requiredAuth: true,
@@ -54,7 +54,7 @@ const router = createRouter({
         {
           path: ':id',
           name: RoutesNameEnum.tasks,
-          component: () => import('@/pages/TheBoard'),
+          component: () => import('@/pages/Board'),
         },
       ],
     },
