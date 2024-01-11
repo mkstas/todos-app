@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router';
 
 import { TaskStatusEnum, TaskType } from '@/shared/typicode';
 
-import { BaseButton, BaseForm, BaseInput, BaseTextarea } from '@/shared/uilib';
+import { Button, Form, Input, Textarea } from '@/shared/uilib';
 
 import { useTaskStore } from '@/entities/task';
 
@@ -32,20 +32,20 @@ const onSubmitForm = async () => {
 </script>
 
 <template>
-  <BaseForm class="grid gap-4" @submit.prevent="onSubmitForm">
-    <BaseInput
+  <Form class="grid gap-4" @submit.prevent="onSubmitForm">
+    <Input
       v-model="taskTitle"
       id="title"
       label="Название*"
       placeholder="Помыть посуду"
     />
-    <BaseTextarea
+    <Textarea
       v-model="taskDescription"
       id="description"
       label="Описание"
       placeholder="Подробности"
       :required="false"
     />
-    <BaseButton>Создать</BaseButton>
-  </BaseForm>
+    <Button>Создать</Button>
+  </Form>
 </template>
