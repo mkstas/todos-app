@@ -1,10 +1,22 @@
 root = true
 
 [*]
-end_of_line = crlf
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[*.{html,js,ts,vue,json}]
-indent_style = space
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{yml,yaml}]
 indent_size = 2
+
+[*.{blade.php,vue,js,ts,css}]
+indent_size = 2
+
+[docker-compose.yml]
+indent_size = 2
+

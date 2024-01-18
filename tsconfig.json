@@ -7,7 +7,7 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["resources/src/*"]
     },
 
     /* Bundler mode */
@@ -16,7 +16,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve",
 
     /* Linting */
     "strict": true,
@@ -24,6 +23,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": [
+    "resources/src/**/*.ts",
+    "resources/src/**/*.d.ts",
+    "resources/src/**/*.vue"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
