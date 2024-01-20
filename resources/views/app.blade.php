@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
     <title>Task Tracker</title>
 </head>
-<body>
+<body class="bg-white text-gray-800">
     <div id="app"></div>
     @vite('resources/src/index.ts')
 </body>
