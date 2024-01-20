@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { Header } from '@/widgets';
+</script>
+
 <template>
-  <p>Welcome</p>
+  <div class="max-w-5xl mx-auto">
+    <Header />
+  </div>
 </template>
