@@ -8,7 +8,7 @@
     <title>Task Tracker</title>
 </head>
 <body class="bg-white text-gray-800">
-    <div id="app"></div>
+    <div id="app" class="flex flex-col min-h-svh overflow-hidden"></div>
     @vite('resources/src/index.ts')
 </body>
 </html>
