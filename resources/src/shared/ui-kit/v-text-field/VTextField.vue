@@ -25,7 +25,7 @@ const update = (event: Event) => {
       :type="type"
       :placeholder="placeholder"
       :required="required"
-      class="outline-none border border-gray-300 focus:border-gray-500 rounded px-4 py-2 placeholder:text-gray-300"
+      class="w-full outline-none border border-gray-300 focus:border-gray-500 rounded px-4 py-2 placeholder:text-gray-300"
     />
     <span v-if="error" class="text-red-500 pt-2">{{ error }}</span>
   </div>
