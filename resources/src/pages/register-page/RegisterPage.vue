@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FormRegister } from '@/features/';
+import { FormRegister } from '@/features';
 import { AppFooter, AppHeader } from '@/widgets';
 </script>
 
