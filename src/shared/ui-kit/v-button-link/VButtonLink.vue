@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
-import { VButtonLinkPropsType } from './VButtonLink.types';
 
-const props = withDefaults(defineProps<VButtonLinkPropsType>(), {
-  size: 'md',
-  color: 'blue',
-});
+const props = withDefaults(
+  defineProps<{
+    to: string;
+    size?: string;
+    color?: string;
+  }>(),
+  {
+    size: 'md',
+    color: 'blue',
+  },
+);
 
 const sizes: { [key: string]: string } = {
   sm: 'py-2 px-4 text-sm',

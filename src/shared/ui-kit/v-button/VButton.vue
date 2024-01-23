@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import { VButtonPropsType } from './VButton.types';
-
-const props = withDefaults(defineProps<VButtonPropsType>(), {
-  size: 'md',
-  color: 'blue',
-});
+const props = withDefaults(
+  defineProps<{
+    size?: string;
+    color?: string;
+  }>(),
+  {
+    size: 'md',
+    color: 'blue',
+  },
+);
 
 const sizes: { [key: string]: string } = {
   sm: 'py-2 px-4 text-sm',

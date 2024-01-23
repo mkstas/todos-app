@@ -1,23 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import { RoutesNameEnum, RoutesPathEnum } from '@/shared/types';
+import { RoutesName, RoutesPath } from '@/shared/types';
 
 export const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: RoutesPathEnum.welcome,
-      name: RoutesNameEnum.welcome,
+      path: RoutesPath.welcome,
+      name: RoutesName.welcome,
       component: () => import('@/pages/welcome-page'),
     },
     {
-      path: RoutesPathEnum.register,
-      name: RoutesNameEnum.register,
+      path: RoutesPath.register,
+      name: RoutesName.register,
       component: () => import('@/pages/register-page'),
     },
     {
-      path: RoutesPathEnum.login,
-      name: RoutesNameEnum.login,
+      path: RoutesPath.login,
+      name: RoutesName.login,
       component: () => import('@/pages/login-page'),
     },
   ],

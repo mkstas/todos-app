@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RoutesPathEnum } from '@/shared/types';
+import { RoutesPath } from '@/shared/types';
 import { VButtonLink, VContainer } from '@/shared/ui-kit';
 </script>
 
@@ -16,7 +16,7 @@ import { VButtonLink, VContainer } from '@/shared/ui-kit';
             задачи
           </p>
         </div>
-        <VButtonLink :to="RoutesPathEnum.register">Начать сейчас</VButtonLink>
+        <VButtonLink :to="RoutesPath.register">Начать сейчас</VButtonLink>
       </div>
     </VContainer>
   </section>

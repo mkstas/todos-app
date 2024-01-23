@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ClipboardDocumentCheckIcon } from '@heroicons/vue/24/solid';
-import { RoutesPathEnum } from '@/shared/types';
+import { RoutesPath } from '@/shared/types';
 import { ButtonBurger, VContainer } from '@/shared/ui-kit';
 import { NavigationDesktop, NavigationMobile } from '@/features';
 import { useMobileMenu } from './useMobileMenu';
@@ -21,7 +21,7 @@ initMobileMenu();
       <nav class="flex items-center relative">
         <RouterLink
           class="flex items-center gap-3 drop-shadow-md shadow-gray-800/15"
-          :to="RoutesPathEnum.welcome"
+          :to="RoutesPath.welcome"
         >
           <ClipboardDocumentCheckIcon class="w-10 h-10 text-blue-500" />
           <span class="text-2xl font-semibold text-gray-800">TaskTracker</span>

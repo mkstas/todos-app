@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { RoutesPathEnum } from '@/shared/types';
+import { RoutesPath } from '@/shared/types';
 import { VButtonLink } from '@/shared/ui-kit';
 </script>
 
 <template>
   <ul class="flex gap-3 max-md">
     <li>
-      <VButtonLink :to="RoutesPathEnum.login" size="sm">Вход</VButtonLink>
+      <VButtonLink :to="RoutesPath.login" size="sm">Вход</VButtonLink>
     </li>
     <li>
-      <VButtonLink :to="RoutesPathEnum.register" size="sm">
+      <VButtonLink :to="RoutesPath.register" size="sm">
         Регистрация
       </VButtonLink>
     </li>

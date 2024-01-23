@@ -1,10 +1,19 @@
 <script setup lang="ts">
-import { VTextFieldPropsType } from './VTextField.types';
-
-withDefaults(defineProps<VTextFieldPropsType>(), {
-  type: 'text',
-  required: false,
-});
+withDefaults(
+  defineProps<{
+    modelValue?: string;
+    type?: string;
+    label?: string;
+    id?: string;
+    error?: string;
+    placeholder?: string;
+    required?: boolean;
+  }>(),
+  {
+    type: 'text',
+    required: false,
+  },
+);
 
 const emit = defineEmits(['update:modelValue']);
 

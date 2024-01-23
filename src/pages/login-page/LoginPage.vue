@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RoutesPathEnum } from '@/shared/types';
+import { RoutesPath } from '@/shared/types';
 import { VLink, VSheet } from '@/shared/ui-kit';
 import { FormLogin } from '@/features';
 import { AppFooter, AppHeader } from '@/widgets';
@@ -12,7 +12,7 @@ import { AppFooter, AppHeader } from '@/widgets';
       <h1 class="mb-8 text-3xl font-semibold px-6">Вход</h1>
       <VSheet class="p-6">
         <FormLogin />
-        <VLink :to="RoutesPathEnum.register" class="block mt-6">
+        <VLink :to="RoutesPath.register" class="block mt-6">
           Еще нет аккаунта? Регистрация
         </VLink>
       </VSheet>

@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
-import { VLinkPropsType } from './VLink.types';
 
-defineProps<VLinkPropsType>();
+defineProps<{
+  to: string;
+}>();
 </script>
 
 <template>
