@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router';
+import { BoardPage } from '@/pages/board-page';
 </script>
 
 <template>
-  <RouterView />
+  <BoardPage />
 </template>
