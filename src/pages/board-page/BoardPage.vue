@@ -19,10 +19,10 @@ window.addEventListener('hashchange', () => {
   <VSheet class="w-full max-w-5xl h-[32rem] grid grid-cols-[12rem_1fr]">
     <Sidebar />
     <main>
-      <component v-if="hash">
+      <template v-if="hash">
         <TaskForm />
         <TaskList />
-      </component>
+      </template>
       <div v-else class="h-full flex items-center justify-center">
         <ClipboardDocumentListIcon class="w-32 h-32 text-zinc-300" />
       </div>

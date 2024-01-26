@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/vue": "^2.1.1",
+    "bcrypt-ts": "^5.0.1",
     "vue": "^3.3.11"
   },
   "devDependencies": {
