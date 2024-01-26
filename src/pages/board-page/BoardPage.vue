@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import { Ref, ref } from 'vue';
+import { Ref, onMounted, ref } from 'vue';
 import { ClipboardDocumentListIcon } from '@heroicons/vue/24/outline';
 import { VSheet } from '@/shared/ui';
 import { TaskForm, Sidebar, TaskList } from '@/widgets';
 
 const hash: Ref<string> = ref('');
+
+onMounted(() => {
+  hash.value = window.location.hash.slice(1);
+});
 
 window.addEventListener('hashchange', () => {
   hash.value = window.location.hash.slice(1);
