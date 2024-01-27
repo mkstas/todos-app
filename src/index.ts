@@ -1,3 +1,7 @@
-import { bootstrap } from '@/app';
+import { createApp } from 'vue';
+import App from '@/App.vue';
+import '@/assets/index.scss';
 
-bootstrap();
+const app = createApp(App);
+
+app.mount('#app');
