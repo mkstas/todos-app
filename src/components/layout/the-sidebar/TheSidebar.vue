@@ -1,25 +1,22 @@
 <script setup lang="ts">
+import { CreateGroupButton, CreateGroupModal } from '@/components/group';
+import { useModal } from '@/composables';
 import { SidebarItem } from './sidebar-item';
-import { SidebarCreate } from './sidebar-create';
+
+const { isOpenModal, openModal, closeModal } = useModal();
 </script>
 
 <template>
-  <aside class="sidebar">
-    <h2 class="sidebar-title">Группы задач</h2>
-    <ul>
-      <SidebarItem />
-      <SidebarItem />
-      <SidebarItem />
-    </ul>
-    <SidebarCreate />
+  <aside class="p-4">
+    <div class="space-y-4">
+      <h2 class="text-lg font-semibold">Группы задач</h2>
+      <ul>
+        <SidebarItem />
+        <SidebarItem />
+        <SidebarItem />
+      </ul>
+      <CreateGroupButton @click="openModal" />
+    </div>
+    <CreateGroupModal v-if="isOpenModal" @close-modal="closeModal" />
   </aside>
 </template>
-
-<style scoped lang="scss">
-.sidebar {
-  @apply p-4 space-y-4;
-  &-title {
-    @apply text-lg font-semibold;
-  }
-}
-</style>
