@@ -2,6 +2,10 @@
 import { inject } from 'vue';
 import { VButtonIcon } from '@/components/ui';
 import { PencilIcon, TrashIcon } from '@heroicons/vue/24/outline';
+import { TaskEditModal } from '..';
+import { useModal } from '@/composables';
+
+const { isOpenModal, openModal, closeModal } = useModal();
 
 const tasks = inject('tasks');
 const deleteTask = inject('delete-task');
@@ -16,13 +20,18 @@ const deleteTask = inject('delete-task');
     >
       <p class="text-lg">{{ task.text }}</p>
       <div class="flex gap-2">
-        <VButtonIcon>
+        <VButtonIcon @click="openModal">
           <PencilIcon class="w-4 h-4" />
         </VButtonIcon>
         <VButtonIcon variant="red" @click="deleteTask(task.id)">
           <TrashIcon class="w-4 h-4" />
         </VButtonIcon>
       </div>
+      <TaskEditModal
+        v-if="isOpenModal"
+        :task="task"
+        @close-modal="closeModal"
+      />
     </li>
   </ul>
 </template>

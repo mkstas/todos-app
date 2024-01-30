@@ -43,7 +43,20 @@ const storeTask = (groupId: string, text: string) => {
   localStorage.setItem('tasks', JSON.stringify(savedTasks));
 };
 
-const updateTask = (id: string, ...values: string | boolean) => {};
+const updateTask = (id: string, ...values: Array<{}>) => {
+  const savedTasks = JSON.parse(localStorage.getItem('tasks') as string);
+  for (let i = 0; i < savedTasks.length; i++) {
+    if (savedTasks[i].id === id) {
+      Object.assign(savedTasks[i], values[0]);
+      for (let j = 0; j < tasks.value.length; j++) {
+        if (tasks.value[j].id === id) {
+          Object.assign(tasks.value[i], values[0]);
+        }
+      }
+    }
+  }
+  localStorage.setItem('tasks', JSON.stringify(savedTasks));
+};
 
 const deleteTask = (id: string) => {
   tasks.value = tasks.value.filter(task => task.id !== id);
