@@ -28,14 +28,12 @@ const onCloseModal = (event: Event) => {
     ref="overlay"
     @click="onCloseModal"
   >
-    <div class="w-full max-w-md p-4 bg-white rounded-lg">
+    <div class="w-full max-w-md px-6 py-4 space-y-4 bg-white rounded-lg">
       <header class="flex justify-between items-center">
         <h3 class="text-lg font-medium">{{ title }}</h3>
-        <VButtonClose id="close-button" ref="closeButton" />
+        <VButtonClose class="-mr-2" id="close-button" ref="closeButton" />
       </header>
-      <div class="p-4">
-        <slot></slot>
-      </div>
+      <slot></slot>
     </div>
   </div>
 </template>
