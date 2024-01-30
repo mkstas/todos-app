@@ -48,11 +48,11 @@ const updateTask = (id: string, ...values: Array<{}>) => {
   for (let i = 0; i < savedTasks.length; i++) {
     if (savedTasks[i].id === id) {
       Object.assign(savedTasks[i], values[0]);
-      for (let j = 0; j < tasks.value.length; j++) {
-        if (tasks.value[j].id === id) {
-          Object.assign(tasks.value[i], values[0]);
-        }
-      }
+    }
+  }
+  for (let i = 0; i < tasks.value.length; i++) {
+    if (tasks.value[i].id === id) {
+      Object.assign(tasks.value[i], values[0]);
     }
   }
   localStorage.setItem('tasks', JSON.stringify(savedTasks));
@@ -77,8 +77,17 @@ onMounted(() => {
   getGroups();
   getTasks(urlHash.value);
 
+  const isUrlHash = groups.value.find(group => group.id === urlHash.value);
+  if (!isUrlHash) {
+    urlHash.value = '';
+  }
+
   window.addEventListener('hashchange', () => {
     urlHash.value = window.location.hash.slice(1);
+    const isUrlHash = groups.value.find(group => group.id === urlHash.value);
+    if (!isUrlHash) {
+      urlHash.value = '';
+    }
     getTasks(urlHash.value);
   });
 });
