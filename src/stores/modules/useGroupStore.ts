@@ -1,4 +1,4 @@
-import { Ref, computed, ref } from 'vue';
+import { Ref, ref } from 'vue';
 import { defineStore } from 'pinia';
 import { useStorage } from '@/composables';
 import { IGroup } from '@/types';
