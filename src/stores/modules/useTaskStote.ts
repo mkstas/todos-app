@@ -1,8 +1,9 @@
 import { Ref, ref } from 'vue';
-import { useStorage } from '..';
+import { defineStore } from 'pinia';
+import { useStorage } from '@/composables';
 import { ITask } from '@/types';
 
-export const useTask = () => {
+export const useTaskStore = defineStore('tasks', () => {
   const { getStorage, setStorage } = useStorage();
 
   const tasks: Ref<ITask[]> = ref([]);
@@ -66,4 +67,4 @@ export const useTask = () => {
     updateTask,
     deleteTask,
   };
-};
+});

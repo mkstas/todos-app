@@ -1,26 +1,22 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
 import { TheSidebar } from '@/components/layout/the-sidebar';
-// import { TheContent } from '@/components/layout/the-content';
-import { useGroupStore } from '@/stores';
-// import { useGroup, useTask, useUrlHash } from '@/composables';
+import { TheContent } from '@/components/layout/the-content';
+import { useHashUrl } from '@/composables';
+import { useGroupStore, useTaskStore } from '@/stores';
 
-// const { groups, getGroups, storeGroup } = useGroup();
 const { getGroups } = useGroupStore();
-// const { tasks, getTasks, storeTask, updateTask, deleteTask } = useTask();
-// const { urlHash, isUrlHashValid } = useUrlHash();
+const { getTasks } = useTaskStore();
+const { hashUrl } = useHashUrl();
 
 onMounted(() => {
   getGroups();
-  // getTasks(urlHash.value);
+  getTasks(hashUrl.value);
 
-  // window.addEventListener('hashchange', () => {
-  //   urlHash.value = location.hash.slice(1);
-
-  //   if (isUrlHashValid) {
-  //     getTasks(urlHash.value);
-  //   }
-  // });
+  window.addEventListener('hashchange', () => {
+    console.log(1);
+    getTasks(hashUrl.value);
+  });
 });
 </script>
 
@@ -30,7 +26,7 @@ onMounted(() => {
       class="w-full max-w-5xl h-[32rem] grid grid-cols-[16rem_1fr] bg-white border border-slate-200 rounded-lg shadow-lg shadow-slate-500/10"
     >
       <TheSidebar />
-      <!-- <TheContent /> -->
+      <TheContent />
     </div>
   </div>
 </template>

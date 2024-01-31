@@ -1,22 +1,23 @@
 <script setup lang="ts">
-import { inject, computed } from 'vue';
-import { CreateTaskForm, TaskList } from '@/components/task';
+import { computed } from 'vue';
 import { ClipboardDocumentListIcon } from '@heroicons/vue/24/outline';
+import { TaskFormCreate, TaskList } from '@/components/task';
+import { useHashUrl } from '@/composables';
+import { useGroupStore } from '@/stores';
 
-const groups = inject('groups');
-const urlHash = inject('url-hash');
-const isUrlHashValid = inject('is-url-hash-valid');
+const { groups } = useGroupStore();
+const { hashUrl, isValidHashUrl } = useHashUrl();
 
 const title = computed(
-  () => groups.value.find(group => group.id === urlHash.value)?.title,
+  () => groups.find(group => group.id === hashUrl.value)?.title,
 );
 </script>
 
 <template>
   <main class="p-4">
-    <div v-if="isUrlHashValid" class="space-y-4">
+    <div v-if="isValidHashUrl" class="space-y-4">
       <h1 class="text-xl font-semibold">{{ title }}</h1>
-      <CreateTaskForm />
+      <TaskFormCreate />
       <TaskList />
     </div>
     <div v-else class="h-full flex items-center justify-center">

@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { Ref, inject, ref } from 'vue';
+import { Ref, ref } from 'vue';
 import { ITask } from '@/types';
 import { VButton, VModal, VTextField } from '@/components/ui';
+import { useTaskStore } from '@/stores';
 
 const props = defineProps<{
   task: ITask;
@@ -11,7 +12,7 @@ const text: Ref<string> = ref(props.task.value);
 
 const emit = defineEmits(['close-modal']);
 
-const updateTask = inject('update-task');
+const { updateTask } = useTaskStore();
 
 const onSubmitForm = () => {
   updateTask(props.task.id, { value: text.value });

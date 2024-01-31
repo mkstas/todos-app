@@ -1,20 +1,18 @@
 <script setup lang="ts">
-import { inject } from 'vue';
-import { VButtonIcon } from '@/components/ui';
 import { PencilIcon, TrashIcon } from '@heroicons/vue/24/outline';
-import { TaskEditModal } from '..';
+import { VButtonIcon } from '@/components/ui';
+import { TaskEditModal } from '@/components/task';
 import { useModal } from '@/composables';
+import { useTaskStore } from '@/stores';
 
 const { isOpenModal, openModal, closeModal } = useModal();
-
-const tasks = inject('tasks');
-const deleteTask = inject('delete-task');
+const taskStore = useTaskStore();
 </script>
 
 <template>
   <ul class="divide-y divide-zinc-200">
     <li
-      v-for="task in tasks"
+      v-for="task in taskStore.tasks"
       :key="task.id"
       class="flex justify-between items-center gap-4 py-2"
     >
@@ -23,7 +21,7 @@ const deleteTask = inject('delete-task');
         <VButtonIcon @click="openModal">
           <PencilIcon class="w-4 h-4" />
         </VButtonIcon>
-        <VButtonIcon variant="red" @click="deleteTask(task.id)">
+        <VButtonIcon variant="red" @click="taskStore.deleteTask(task.id)">
           <TrashIcon class="w-4 h-4" />
         </VButtonIcon>
       </div>
