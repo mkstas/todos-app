@@ -6,6 +6,6 @@ export interface IGroup {
 export interface ITask {
   id: string;
   groupId: string;
-  text: string;
+  value: string;
   status: boolean;
 }

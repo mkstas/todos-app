@@ -7,14 +7,14 @@ const props = defineProps<{
   task: ITask;
 }>();
 
-const text: Ref<string> = ref(props.task.text);
+const text: Ref<string> = ref(props.task.value);
 
 const emit = defineEmits(['close-modal']);
 
 const updateTask = inject('update-task');
 
 const onSubmitForm = () => {
-  updateTask(props.task.id, { text: text.value });
+  updateTask(props.task.id, { value: text.value });
   emit('close-modal');
 };
 </script>

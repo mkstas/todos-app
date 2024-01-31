@@ -18,7 +18,7 @@ const deleteTask = inject('delete-task');
       :key="task.id"
       class="flex justify-between items-center gap-4 py-2"
     >
-      <p class="text-lg">{{ task.text }}</p>
+      <p class="text-lg">{{ task.value }}</p>
       <div class="flex gap-2">
         <VButtonIcon @click="openModal">
           <PencilIcon class="w-4 h-4" />
