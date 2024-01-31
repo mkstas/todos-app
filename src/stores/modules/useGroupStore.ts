@@ -21,9 +21,22 @@ export const useGroupStore = defineStore('groups', () => {
     setStorage('groups', groups.value);
   };
 
+  const deleteGroup = (id: string) => {
+    console.log(1);
+    const savedGroups: IGroup[] = getStorage('groups');
+    const updatedGroups = savedGroups.filter(group => group.id !== id);
+
+    groups.value = groups.value.filter(group => group.id !== id);
+
+    setStorage('groups', updatedGroups);
+
+    // location.hash = '';
+  };
+
   return {
     groups,
     getGroups,
     storeGroup,
+    deleteGroup,
   };
 });
