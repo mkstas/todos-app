@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { inject } from 'vue';
-import { IGroup } from '@/types';
+import { GroupCreateButton, GroupCreateModal } from '@/components/group';
 import { useModal } from '@/composables';
-import { CreateGroupButton, CreateGroupModal } from '@/components/group';
+import { useGroupStore } from '@/stores';
 import { SidebarItem } from './sidebar-item';
 
 const { isOpenModal, openModal, closeModal } = useModal();
-
-const groups: IGroup[] | undefined = inject('groups');
+const { groups } = useGroupStore();
 </script>
 
 <template>
@@ -22,8 +20,8 @@ const groups: IGroup[] | undefined = inject('groups');
           :title="group.title"
         />
       </ul>
-      <CreateGroupButton @click="openModal" />
+      <GroupCreateButton @click="openModal" />
     </div>
-    <CreateGroupModal v-if="isOpenModal" @close-modal="closeModal" />
+    <GroupCreateModal v-if="isOpenModal" @close-modal="closeModal" />
   </aside>
 </template>

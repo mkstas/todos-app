@@ -5,6 +5,7 @@ import { ClipboardDocumentListIcon } from '@heroicons/vue/24/outline';
 
 const groups = inject('groups');
 const urlHash = inject('url-hash');
+const isUrlHashValid = inject('is-url-hash-valid');
 
 const title = computed(
   () => groups.value.find(group => group.id === urlHash.value)?.title,
@@ -13,7 +14,7 @@ const title = computed(
 
 <template>
   <main class="p-4">
-    <div v-if="urlHash" class="space-y-4">
+    <div v-if="isUrlHashValid" class="space-y-4">
       <h1 class="text-xl font-semibold">{{ title }}</h1>
       <CreateTaskForm />
       <TaskList />

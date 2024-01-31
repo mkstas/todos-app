@@ -1,2 +1,2 @@
-export * from './create-group-button';
-export * from './create-group-modal';
+export * from './group-create-button';
+export * from './group-create-modal';

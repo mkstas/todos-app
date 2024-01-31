@@ -1,8 +1,9 @@
-import { Ref, ref } from 'vue';
-import { IGroup } from '@/types';
+import { Ref, computed, ref } from 'vue';
+import { defineStore } from 'pinia';
 import { useStorage } from '@/composables';
+import { IGroup } from '@/types';
 
-export const useGroup = () => {
+export const useGroupStore = defineStore('groups', () => {
   const { getStorage, setStorage } = useStorage();
 
   const groups: Ref<IGroup[]> = ref([]);
@@ -25,4 +26,4 @@ export const useGroup = () => {
     getGroups,
     storeGroup,
   };
-};
+});
