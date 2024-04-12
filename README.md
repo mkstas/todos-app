@@ -1,7 +1,5 @@
 # Todo App
 
-## Описание
-
 Приложение для составления списков задач\
 Проект размещен по адресу: https://vue-todo-app-puce.vercel.app/
 
@@ -15,4 +13,16 @@ npm install
 
 ```sh
 npm run dev
+```
+
+### Сборка готового проекта
+
+```sh
+npm run build
+```
+
+### Предпросмотр готового проекта
+
+```sh
+npm run preview
 ```
