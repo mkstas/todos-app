@@ -15,9 +15,7 @@ onMounted(() => {
   groupStore.getGroups();
   taskStore.getTasks(hashUrl.value);
 
-  window.addEventListener('hashchange', () =>
-    taskStore.getTasks(hashUrl.value),
-  );
+  window.addEventListener('hashchange', () => taskStore.getTasks(hashUrl.value));
 });
 </script>
 

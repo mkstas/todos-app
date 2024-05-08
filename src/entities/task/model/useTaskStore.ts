@@ -19,11 +19,7 @@ export const useTaskStore = defineStore('tasks', () => {
     }
   };
 
-  const storeTask = (
-    groupId: string,
-    text: string,
-    status: boolean = false,
-  ) => {
+  const storeTask = (groupId: string, text: string, status: boolean = false) => {
     const task: ITask = { id: Date.now().toString(), groupId, text, status };
     const savedTasks: ITask[] = getLocalStorage('tasks');
 

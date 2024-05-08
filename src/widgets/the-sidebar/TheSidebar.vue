@@ -13,11 +13,7 @@ const { isOpenModal, openModal, closeModal } = useModal();
   <section class="space-y-4">
     <h2 class="text-lg font-semibold">Группы задач</h2>
     <ul>
-      <SidebarGroupItem
-        v-for="group in groupStore.groups"
-        :key="group.id"
-        :group="group"
-      />
+      <SidebarGroupItem v-for="group in groupStore.groups" :key="group.id" :group="group" />
     </ul>
     <div>
       <CreateGroupButton @click="openModal" />

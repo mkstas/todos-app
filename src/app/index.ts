@@ -3,8 +3,6 @@ import { store } from './providers';
 import App from './index.vue';
 import './index.css';
 
-export const bootstrap = () => {
-  const app = createApp(App);
+const app = createApp(App);
 
-  app.use(store).mount('#app');
-};
+app.use(store).mount('#app');
