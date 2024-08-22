@@ -27,6 +27,6 @@ const change = (event: Event) => {
       :value="modelValue"
       @change="change"
     />
-    <span class="mb-2 text-red-500">{{ error }}</span>
+    <span v-if="error" class="block mt-2 text-red-500">{{ error }}</span>
   </div>
 </template>
