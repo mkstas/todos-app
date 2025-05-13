@@ -11,6 +11,6 @@ const taskStore = useTaskStore();
 
 <template>
   <VButton content="icon" variant="red" @click="taskStore.deleteTask(id)">
-    <TrashIcon class="w-4 h-4" />
+    <TrashIcon class="h-4 w-4" />
   </VButton>
 </template>

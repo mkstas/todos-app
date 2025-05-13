@@ -27,7 +27,7 @@ const onSubmit = () => {
 </script>
 
 <template>
-  <VModal title="Создание группы" @close-modal="emit('close-modal')">
+  <VModal title="Редактирование задачи" @close-modal="emit('close-modal')">
     <form class="space-y-4" @submit.prevent="onSubmit">
       <VTextField v-model="text" :error="error" placeholder="Редактирование задачи" />
       <VButton>Сохранить</VButton>

@@ -11,6 +11,6 @@ const groupStore = useGroupStore();
 
 <template>
   <VButton content="icon" variant="red" @click="groupStore.deleteGroup(id)">
-    <TrashIcon class="w-4 h-4" />
+    <TrashIcon class="h-4 w-4" />
   </VButton>
 </template>

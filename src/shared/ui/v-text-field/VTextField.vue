@@ -18,7 +18,7 @@ const change = (event: Event) => {
   <div>
     <label class="pb-2" :for="id">{{ label }}</label>
     <input
-      class="w-full px-3 py-2 border border-slate-200 outline-none focus:border-slate-800 rounded-lg"
+      class="w-full rounded-lg border border-slate-200 px-3 py-2 outline-none focus:border-slate-800"
       :id="id"
       :type="type"
       :placeholder="placeholder"
@@ -27,6 +27,6 @@ const change = (event: Event) => {
       :value="modelValue"
       @change="change"
     />
-    <span v-if="error" class="block mt-2 text-red-500">{{ error }}</span>
+    <span v-if="error" class="mt-2 block text-red-500">{{ error }}</span>
   </div>
 </template>

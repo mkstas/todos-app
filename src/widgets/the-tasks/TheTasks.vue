@@ -20,11 +20,11 @@ const title = computed(() => groupStore.groups.find(group => group.id === hashUr
   <section v-if="isGroupValid" class="space-y-4">
     <h2 class="text-lg font-semibold">{{ title }}</h2>
     <CreateTaskForm />
-    <ul class="divide-y divide-y-zinc-200">
+    <ul class="divide-y divide-zinc-200">
       <TasksItem v-for="task in taskStore.tasks" :key="task.id" :task="task" />
     </ul>
   </section>
-  <div v-else class="h-full flex items-center justify-center">
-    <ClipboardDocumentListIcon class="w-20 h-20 md:w-32 md:h-32 text-slate-200" />
+  <div v-else class="flex h-full items-center justify-center">
+    <ClipboardDocumentListIcon class="h-20 w-20 text-slate-200 md:h-32 md:w-32" />
   </div>
 </template>

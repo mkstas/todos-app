@@ -2,10 +2,12 @@
   "arrowParens": "avoid",
   "bracketSameLine": false,
   "bracketSpacing": true,
-  "jsxSingleQuote": true,
-  "singleQuote": true,
   "endOfLine": "crlf",
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "printWidth": 120,
+  "tabWidth": 2,
   "semi": true,
   "trailingComma": "all",
-  "printWidth": 100
+  "plugins": ["prettier-plugin-tailwindcss"]
 }

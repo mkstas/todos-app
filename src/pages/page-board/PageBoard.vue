@@ -24,7 +24,7 @@ onMounted(() => {
     <VSheet class="max-w-5xl">
       <main class="space-y-4">
         <h1 class="text-xl font-semibold">Список задач</h1>
-        <div class="grid md:grid-cols-[14rem_1fr] gap-8 md:h-[32rem]">
+        <div class="grid gap-8 md:h-[32rem] md:grid-cols-[14rem_1fr]">
           <TheSidebar />
           <TheTasks />
         </div>

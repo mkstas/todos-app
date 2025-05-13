@@ -6,7 +6,7 @@ defineProps<IProps>();
 
 <template>
   <a
-    class="inline-block px-3 py-2 rounded-lg outline-none hover:bg-slate-200 focus-visible:bg-slate-200 text-lg"
+    class="inline-block rounded-lg px-3 py-2 text-lg transition-colors outline-none hover:bg-slate-200 focus-visible:bg-slate-200"
     :href="`#${group.id}`"
   >
     {{ group.title }}

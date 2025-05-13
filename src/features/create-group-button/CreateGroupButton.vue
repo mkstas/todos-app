@@ -4,8 +4,8 @@ import { VButton } from '@/shared/ui';
 </script>
 
 <template>
-  <VButton class="flex justify-between items-center gap-2 w-full">
+  <VButton class="flex w-full items-center justify-between gap-2">
     <span>Создать</span>
-    <PlusCircleIcon class="w-5 h-5" />
+    <PlusCircleIcon class="h-5 w-5" />
   </VButton>
 </template>

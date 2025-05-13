@@ -5,6 +5,6 @@ import { VButton } from '@/shared/ui';
 
 <template>
   <VButton content="icon">
-    <PencilSquareIcon class="w-4 h-4" />
+    <PencilSquareIcon class="h-4 w-4" />
   </VButton>
 </template>
