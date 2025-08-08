@@ -22,11 +22,11 @@
 ### Установка
 
 ```bash
-$ npm install
+$ pnpm install
 ```
 
 ### Запуск в режиме разработки
 
 ```bash
-$ npm run dev
+$ pnpm run dev
 ```
