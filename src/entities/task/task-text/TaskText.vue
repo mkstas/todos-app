@@ -5,5 +5,5 @@ defineProps<IProps>();
 </script>
 
 <template>
-  <p class="text-lg">{{ text }}</p>
+  <p class="pt-0.5 text-lg">{{ text }}</p>
 </template>

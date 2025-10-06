@@ -18,7 +18,7 @@ const change = (event: Event) => {
   <div>
     <label class="pb-2" :for="id">{{ label }}</label>
     <input
-      class="w-full rounded-lg border border-slate-200 px-3 py-2 outline-none focus:border-slate-800"
+      class="w-full rounded-xl border border-slate-200 px-3 py-2 outline-none focus:border-slate-500"
       :id="id"
       :type="type"
       :placeholder="placeholder"

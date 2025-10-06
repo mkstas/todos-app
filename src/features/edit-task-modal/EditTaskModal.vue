@@ -30,7 +30,7 @@ const onSubmit = () => {
   <VModal title="Редактирование задачи" @close-modal="emit('close-modal')">
     <form class="space-y-4" @submit.prevent="onSubmit">
       <VTextField v-model="text" :error="error" placeholder="Редактирование задачи" />
-      <VButton>Сохранить</VButton>
+      <VButton class="ml-auto block">Сохранить</VButton>
     </form>
   </VModal>
 </template>
